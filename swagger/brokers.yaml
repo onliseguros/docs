@@ -1820,10 +1820,6 @@ definitions:
 
   PostCharge:
     properties:
-      broker_id:
-        description: broker Id
-        type: string
-        x-go-name: BrokerId
       card:
         $ref: '#/definitions/CardComplete'
       sale_id:
@@ -1835,10 +1831,6 @@ definitions:
   PostChargeRequest:
     description: PostChargeRequest post charge request
     properties:
-      broker_id:
-        description: broker Id
-        type: string
-        x-go-name: BrokerId
       card:
         $ref: '#/definitions/CardComplete'
       sale_id:
@@ -1854,10 +1846,6 @@ definitions:
         description: broker channel Id
         type: string
         x-go-name: BrokerChannelID
-      broker_id:
-        description: broker Id
-        type: string
-        x-go-name: BrokerID
       broker_product_id:
         description: broker product Id
         type: string
@@ -1883,10 +1871,6 @@ definitions:
         description: broker channel Id
         type: string
         x-go-name: BrokerChannelId
-      broker_id:
-        description: broker Id
-        type: string
-        x-go-name: BrokerId
       broker_product_id:
         description: broker product Id
         type: string
@@ -1908,10 +1892,6 @@ definitions:
   PostQuote:
     description: PostQuote post quote
     properties:
-      broker_id:
-        description: broker Id
-        type: string
-        x-go-name: BrokerID
       bundles:
         description: bundles
         items:
@@ -1966,10 +1946,6 @@ definitions:
         description: broker channel Id
         type: string
         x-go-name: BrokerChannelId
-      broker_id:
-        description: broker Id
-        type: string
-        x-go-name: BrokerId
       broker_product_id:
         description: broker product Id
         type: string
@@ -1983,10 +1959,6 @@ definitions:
   PostQuoteRequest:
     description: PostQuoteRequest post quote request
     properties:
-      broker_id:
-        description: broker Id
-        type: string
-        x-go-name: BrokerId
       bundles:
         description: bundles
         items:
@@ -2132,10 +2104,6 @@ definitions:
         description: broker channel Id
         type: string
         x-go-name: BrokerChannelId
-      broker_id:
-        description: broker Id
-        type: string
-        x-go-name: BrokerId
       broker_product_id:
         description: broker product Id
         type: string
@@ -2149,10 +2117,6 @@ definitions:
   PostSale:
     description: PostSale post sale
     properties:
-      broker_id:
-        description: broker Id
-        type: string
-        x-go-name: BrokerID
       complement:
         $ref: '#/definitions/EffectComplement'
       installment_id:
@@ -2171,10 +2135,6 @@ definitions:
 
   PostSaleReqRequest:
     properties:
-      broker_id:
-        description: broker Id
-        type: string
-        x-go-name: BrokerId
       quote_id:
         description: quote Id
         type: string
@@ -2184,10 +2144,6 @@ definitions:
   PostSaleRequest:
     description: PostSaleRequest post sale request
     properties:
-      broker_id:
-        description: broker Id
-        type: string
-        x-go-name: BrokerId
       complement:
         $ref: '#/definitions/EffectComplement'
       installment_id:
@@ -2248,10 +2204,6 @@ definitions:
   PostSaleRequestRequest:
     description: PostSaleRequestRequest post sale request request
     properties:
-      broker_id:
-        description: broker Id
-        type: string
-        x-go-name: BrokerId
       quote_id:
         description: quote Id
         type: string

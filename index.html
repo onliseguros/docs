@@ -824,6 +824,8 @@ process inside Insurers, for example, the Policy document, endorsement details, 
 <h2 id='important-notes'>Important notes</h2>
 <aside class="warning">Do not use the credentials mentioned above in front-end devices. The credentials must be used exclusively by servers at back-end.</aside>
 
+<aside class="warning">Do not forgget to add to your token request the "audience" parameter, the value will be provided to you in the registration.</aside>
+
 <aside class="notice">Re-use access-tokens between requests, respecting his expiration date. Use the refresh-token, when available, to keep consistency and performance.</aside>
 <h1 id='api-brokers'>API - Brokers</h1>
 <!-- Generator: Widdershins v4.0.1 -->
@@ -846,7 +848,6 @@ curl <span class="nt">-X</span> POST https://api.onli.com.br/v1/broker-charges <
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span>
 
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">inputBody</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">{
-  "broker_id": "string",
   "card": {
     "brand": "string",
     "customer_id": "string",
@@ -908,7 +909,6 @@ curl <span class="nt">-X</span> POST https://api.onli.com.br/v1/broker-charges <
 <p>Body parameter</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -1168,7 +1168,6 @@ curl <span class="nt">-X</span> GET https://api.onli.com.br/v1/consultant/timeli
 <p>200 Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"business_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -1490,7 +1489,6 @@ curl <span class="nt">-X</span> POST https://api.onli.com.br/v1/leads <span clas
 
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">inputBody</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">{
   "broker_channel_id": "string",
-  "broker_id": "string",
   "broker_product_id": "string",
   "email": "string",
   "name": "string",
@@ -1546,7 +1544,6 @@ curl <span class="nt">-X</span> POST https://api.onli.com.br/v1/leads <span clas
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"broker_channel_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"broker_product_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -1611,7 +1608,6 @@ curl <span class="nt">-X</span> POST https://api.onli.com.br/v1/leads <span clas
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"broker_channel_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"broker_product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"agency_percent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -1843,7 +1839,6 @@ curl <span class="nt">-X</span> GET https://api.onli.com.br/v1/merchant/stores/<
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"broker_channel_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"broker_products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"agency_percent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -2056,7 +2051,6 @@ curl <span class="nt">-X</span> GET https://api.onli.com.br/v1/merchant/vendor/<
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"agency_percent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"commission_percent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -2647,7 +2641,6 @@ curl <span class="nt">-X</span> POST https://api.onli.com.br/v1/quotes <span cla
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span>
 
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">inputBody</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">{
-  "broker_id": "string",
   "bundles": [
     "string"
   ],
@@ -3027,7 +3020,6 @@ curl <span class="nt">-X</span> POST https://api.onli.com.br/v1/quotes <span cla
 <p>Body parameter</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"bundles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">],</span><span class="w">
@@ -4180,7 +4172,6 @@ curl <span class="nt">-X</span> POST https://api.onli.com.br/v1/quotes/request <
 
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">inputBody</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">{
   "broker_channel_id": "string",
-  "broker_id": "string",
   "broker_product_id": "string",
   "lead_id": "string"
 }</span><span class="dl">'</span><span class="p">;</span>
@@ -4234,7 +4225,6 @@ curl <span class="nt">-X</span> POST https://api.onli.com.br/v1/quotes/request <
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"broker_channel_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"broker_product_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"lead_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4957,7 +4947,6 @@ curl <span class="nt">-X</span> POST https://api.onli.com.br/v1/sales <span clas
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span>
 
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">inputBody</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">{
-  "broker_id": "string",
   "complement": {
     "item": {
       "adaptation_code": "string",
@@ -5324,7 +5313,6 @@ curl <span class="nt">-X</span> POST https://api.onli.com.br/v1/sales <span clas
 <p>Body parameter</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"complement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"adaptation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -6816,7 +6804,6 @@ curl <span class="nt">-X</span> POST https://api.onli.com.br/v1/sales/request <s
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span>
 
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">inputBody</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">{
-  "broker_id": "string",
   "quote_id": "string"
 }</span><span class="dl">'</span><span class="p">;</span>
 <span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -6868,7 +6855,6 @@ curl <span class="nt">-X</span> POST https://api.onli.com.br/v1/sales/request <s
 <p>Body parameter</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"quote_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -6899,7 +6885,6 @@ curl <span class="nt">-X</span> POST https://api.onli.com.br/v1/sales/request <s
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"broker_channel_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"broker_product_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"credential"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"broker"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -8627,13 +8612,6 @@ OAuth2
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>broker_id</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>broker Id</td>
-</tr>
 <tr>
 <td>business_id</td>
 <td>string</td>
@@ -15203,7 +15181,6 @@ OAuth2
 <a id="tocSpostcharge"></a>
 <a id="tocspostcharge"></a></p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -15227,13 +15204,6 @@ OAuth2
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>broker_id</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>broker Id</td>
-</tr>
 </tbody></table>
 
 <h2 id="tocS_PostChargeRequest">PostChargeRequest</h2>
@@ -15245,7 +15215,6 @@ OAuth2
 <a id="tocSpostchargerequest"></a>
 <a id="tocspostchargerequest"></a></p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -15272,11 +15241,18 @@ OAuth2
 </tr>
 </thead><tbody>
 <tr>
-<td>broker_id</td>
+<td>sale_id</td>
 <td>string</td>
+<td>true</td>
+<td>none</td>
+<td>sale Id</td>
+</tr>
+<tr>
+<td>card</td>
+<td><a href="#schemacardcomplete">CardComplete</a></td>
 <td>false</td>
 <td>none</td>
-<td>broker Id</td>
+<td>card</td>
 </tr>
 </tbody></table>
 
@@ -15290,7 +15266,6 @@ OAuth2
 <a id="tocspostlead"></a></p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"broker_channel_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"broker_product_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -15317,15 +15292,8 @@ OAuth2
 <td>broker channel Id</td>
 </tr>
 <tr>
-<td>broker_id</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>broker Id</td>
-</tr>
-<tr>
 <td>broker_product_id</td>
-<td>string</td>
+<td>true</td>
 <td>false</td>
 <td>none</td>
 <td>broker product Id</td>
@@ -15333,21 +15301,21 @@ OAuth2
 <tr>
 <td>email</td>
 <td>string</td>
-<td>false</td>
+<td>true</td>
 <td>none</td>
 <td>email</td>
 </tr>
 <tr>
 <td>name</td>
 <td>string</td>
-<td>false</td>
+<td>true</td>
 <td>none</td>
 <td>name</td>
 </tr>
 <tr>
 <td>phone</td>
 <td>string</td>
-<td>false</td>
+<td>true</td>
 <td>none</td>
 <td>phone</td>
 </tr>
@@ -15363,7 +15331,6 @@ OAuth2
 <a id="tocspostleadrequest"></a></p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"broker_channel_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"broker_product_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -15388,13 +15355,6 @@ OAuth2
 <td>false</td>
 <td>none</td>
 <td>broker channel Id</td>
-</tr>
-<tr>
-<td>broker_id</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>broker Id</td>
 </tr>
 <tr>
 <td>broker_product_id</td>
@@ -15435,7 +15395,6 @@ OAuth2
 <a id="tocSpostquote"></a>
 <a id="tocspostquote"></a></p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"bundles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">],</span><span class="w">
@@ -15780,13 +15739,6 @@ OAuth2
 </tr>
 </thead><tbody>
 <tr>
-<td>broker_id</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>broker Id</td>
-</tr>
-<tr>
 <td>bundles</td>
 <td>[string]</td>
 <td>false</td>
@@ -15819,7 +15771,6 @@ OAuth2
 <a id="tocspostquotereqrequest"></a></p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"broker_channel_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"broker_product_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"lead_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -15840,13 +15791,6 @@ OAuth2
 <td>false</td>
 <td>none</td>
 <td>broker channel Id</td>
-</tr>
-<tr>
-<td>broker_id</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>broker Id</td>
 </tr>
 <tr>
 <td>broker_product_id</td>
@@ -15873,7 +15817,6 @@ OAuth2
 <a id="tocSpostquoterequest"></a>
 <a id="tocspostquoterequest"></a></p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"bundles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"string"</span><span class="w">
   </span><span class="p">],</span><span class="w">
@@ -16218,13 +16161,6 @@ OAuth2
 </tr>
 </thead><tbody>
 <tr>
-<td>broker_id</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>broker Id</td>
-</tr>
-<tr>
 <td>bundles</td>
 <td>[string]</td>
 <td>false</td>
@@ -16276,7 +16212,6 @@ OAuth2
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"broker_channel_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"broker_product_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"bundles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -16468,7 +16403,6 @@ OAuth2
 <a id="tocspostquoterequestrequest"></a></p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"broker_channel_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"broker_product_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"lead_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -16491,13 +16425,6 @@ OAuth2
 <td>false</td>
 <td>none</td>
 <td>broker channel Id</td>
-</tr>
-<tr>
-<td>broker_id</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>broker Id</td>
 </tr>
 <tr>
 <td>broker_product_id</td>
@@ -16524,7 +16451,6 @@ OAuth2
 <a id="tocSpostsale"></a>
 <a id="tocspostsale"></a></p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"complement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"adaptation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -16856,11 +16782,32 @@ OAuth2
 </tr>
 </thead><tbody>
 <tr>
-<td>broker_id</td>
+<td>installment_id</td>
 <td>string</td>
+<td>true</td>
+<td>none</td>
+<td>installment Id</td>
+</tr>
+<tr>
+<td>payment_method</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>payment method</td>
+</tr>
+<tr>
+<td>sale_request_id</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>sale request Id</td>
+</tr>
+<tr>
+<td>complement</td>
+<td><a href="#schemaeffectcomplement">EffectComplement</a></td>
 <td>false</td>
 <td>none</td>
-<td>broker Id</td>
+<td>complement</td>
 </tr>
 </tbody></table>
 
@@ -16873,7 +16820,6 @@ OAuth2
 <a id="tocSpostsalereqrequest"></a>
 <a id="tocspostsalereqrequest"></a></p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"quote_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -16888,18 +16834,25 @@ OAuth2
 </tr>
 </thead><tbody>
 <tr>
-<td>broker_id</td>
+<td>installment_id</td>
 <td>string</td>
-<td>false</td>
+<td>true</td>
 <td>none</td>
-<td>broker Id</td>
+<td>sale Id</td>
 </tr>
 <tr>
-<td>quote_id</td>
+<td>payment_method</td>
 <td>string</td>
-<td>false</td>
+<td>true</td>
 <td>none</td>
-<td>quote Id</td>
+<td>sale Id</td>
+</tr>
+<tr>
+<td>sale_request_id</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>sale Id</td>
 </tr>
 </tbody></table>
 
@@ -16912,7 +16865,6 @@ OAuth2
 <a id="tocSpostsalerequest"></a>
 <a id="tocspostsalerequest"></a></p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"complement"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"adaptation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -17243,13 +17195,6 @@ OAuth2
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>broker_id</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>broker Id</td>
-</tr>
 </tbody></table>
 
 <h2 id="tocS_PostSaleRequestComplete">PostSaleRequestComplete</h2>
@@ -17262,7 +17207,6 @@ OAuth2
 <a id="tocspostsalerequestcomplete"></a></p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"broker_channel_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"broker_product_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"credential"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"broker"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -17844,13 +17788,6 @@ OAuth2
 <td>broker channel Id</td>
 </tr>
 <tr>
-<td>broker_id</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>broker Id</td>
-</tr>
-<tr>
 <td>broker_product_id</td>
 <td>string</td>
 <td>false</td>
@@ -17868,7 +17805,6 @@ OAuth2
 <a id="tocSpostsalerequestrequest"></a>
 <a id="tocspostsalerequestrequest"></a></p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"broker_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"quote_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -17884,13 +17820,6 @@ OAuth2
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>broker_id</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>broker Id</td>
-</tr>
 <tr>
 <td>quote_id</td>
 <td>string</td>
@@ -19139,13 +19068,6 @@ OAuth2
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>broker_id</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>broker Id</td>
-</tr>
 <tr>
 <td>date</td>
 <td>string</td>
@@ -23518,13 +23440,6 @@ OAuth2
 <td>broker channel Id</td>
 </tr>
 <tr>
-<td>broker_id</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>broker Id</td>
-</tr>
-<tr>
 <td>broker_product_id</td>
 <td>string</td>
 <td>false</td>
@@ -24008,13 +23923,6 @@ OAuth2
 <td>broker channel Id</td>
 </tr>
 <tr>
-<td>broker_id</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>broker Id</td>
-</tr>
-<tr>
 <td>broker_products</td>
 <td>[<a href="#schemabrokerproductcomplete">BrokerProductComplete</a>]</td>
 <td>false</td>
@@ -24222,13 +24130,6 @@ OAuth2
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>broker_id</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>broker Id</td>
-</tr>
 <tr>
 <td>business_id</td>
 <td>string</td>
@@ -24924,13 +24825,6 @@ OAuth2
 <td>false</td>
 <td>none</td>
 <td>agency percent</td>
-</tr>
-<tr>
-<td>broker_id</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>broker Id</td>
 </tr>
 <tr>
 <td>commission_percent</td>

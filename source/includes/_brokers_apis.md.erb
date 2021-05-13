@@ -1,0 +1,6513 @@
+# API - Brokers
+
+<!-- Generator: Widdershins v4.0.1 -->
+
+Base URLs:
+
+* <a href="https://api.onli.com.br/v1/">https://api.onli.com.br/v1/</a>
+
+## PostCharge
+
+<a id="opIdPostCharge"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.onli.com.br/v1/broker-charges \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer xxx' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+const inputBody = '{
+  "broker_id": "string",
+  "card": {
+    "brand": "string",
+    "customer_id": "string",
+    "expiration_date": "string",
+    "holder": "string",
+    "id": "string",
+    "number": "string",
+    "security_code": "string",
+    "token": "string"
+  },
+  "sale_id": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Authorization':'Bearer xxx',
+  'Accept':'application/json'
+};
+
+fetch('https://api.onli.com.br/v1/broker-charges',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Authorization": []string{"Bearer xxx"},
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.onli.com.br/v1/broker-charges", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /broker-charges`
+
+> Body parameter
+
+```json
+{
+  "broker_id": "string",
+  "card": {
+    "brand": "string",
+    "customer_id": "string",
+    "expiration_date": "string",
+    "holder": "string",
+    "id": "string",
+    "number": "string",
+    "security_code": "string",
+    "token": "string"
+  },
+  "sale_id": "string"
+}
+```
+
+<h3 id="postcharge-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[PostCharge](#schemapostcharge)|false|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "address": {
+    "city_name": "string",
+    "complement": "string",
+    "district_name": "string",
+    "number": "string",
+    "state_code": "string",
+    "street_name": "string",
+    "zip_code": "string"
+  },
+  "amount": 0,
+  "amount_refund": 0,
+  "bank_account": {
+    "account": "string",
+    "account_digit": "string",
+    "agency": "string",
+    "bank_code": "string"
+  },
+  "billet": {
+    "barcode": "string",
+    "digitable_line": "string",
+    "document_url": "string",
+    "due_date": "string",
+    "number": "string"
+  },
+  "canceled_at": "string",
+  "card_token": {
+    "id": "string",
+    "token": "string"
+  },
+  "credential": {
+    "items": [
+      {
+        "key": "string",
+        "value": "string"
+      }
+    ]
+  },
+  "currency": "string",
+  "customer_id": "string",
+  "date": "string",
+  "id": "string",
+  "installments": 0,
+  "metadata": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "payer_document": "string",
+  "payer_email": "string",
+  "payer_mobile_phone": "string",
+  "payer_name": "string",
+  "payer_phone": "string",
+  "payment_credential_id": "string",
+  "payment_method": "string",
+  "payment_tries": [
+    {
+      "amount": 0,
+      "bank_account": {
+        "account": "string",
+        "account_digit": "string",
+        "agency": "string",
+        "bank_code": "string"
+      },
+      "canceled_at": "string",
+      "card_info": {
+        "brand": "string",
+        "expiration_date": "string",
+        "holder": "string",
+        "last_four": "string"
+      },
+      "currency": "string",
+      "customer_id": "string",
+      "customer_order_id": "string",
+      "date": "string",
+      "error": "string",
+      "id": "string",
+      "installments": 0,
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "payer_address": {
+        "city_name": "string",
+        "complement": "string",
+        "district_name": "string",
+        "number": "string",
+        "state_code": "string",
+        "street_name": "string",
+        "zip_code": "string"
+      },
+      "payer_contact": {
+        "email": "string",
+        "mobile_phone": "string",
+        "phone": "string"
+      },
+      "payer_document": "string",
+      "payer_name": "string",
+      "soft_descriptor": "string",
+      "status": 0,
+      "type": "string"
+    }
+  ],
+  "pix": {
+    "key": "string",
+    "url": "string"
+  },
+  "recurrence": {
+    "expiration_day": 0,
+    "id": "string",
+    "interest_amount": 0,
+    "interest_percent": 0,
+    "period_days": 0,
+    "quantity": 0,
+    "recurrence_disabled": true
+  },
+  "sequence_number": 0,
+  "soft_descriptor": "string",
+  "status": 0
+}
+```
+
+<h3 id="postcharge-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[ChargeComplete](#schemachargecomplete)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+OAuth2
+</aside>
+
+## GetSaleTimeline
+
+<a id="opIdGetSaleTimeline"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.onli.com.br/v1/consultant/timeline/{saleId} \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+  'Authorization':'Bearer xxx'
+};
+
+fetch('https://api.onli.com.br/v1/consultant/timeline/{saleId}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.onli.com.br/v1/consultant/timeline/{saleId}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /consultant/timeline/{saleId}`
+
+<h3 id="retrieve-important-data-after-sale-is-completed.-retrieve-status-changes,-policy,-and-other-events.-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|saleId|path|string|true|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "broker_id": "string",
+  "business_id": "string",
+  "date": "string",
+  "error": "string",
+  "events": [
+    {
+      "date": "string",
+      "policy": {
+        "bonus_class": "string",
+        "cancel_description": "string",
+        "cancel_reason": 0,
+        "ci_code": "string",
+        "date": "string",
+        "date_end": "string",
+        "document_url": "string",
+        "effect": {
+          "date": "string",
+          "error": "string",
+          "id": "string",
+          "insurer_branch_id": "string",
+          "insurer_credential_id": "string",
+          "insurer_id": "string",
+          "last_update": "string",
+          "product": {},
+          "proposal": {},
+          "proposal_id": "string",
+          "sale": {}
+        },
+        "effect_id": "string",
+        "error": "string",
+        "hub_connection_id": "string",
+        "id": "string",
+        "insurer_branch_id": "string",
+        "insurer_credential": {
+          "broker": {},
+          "broker_id": "string",
+          "customer_branch_id": "string",
+          "customer_id": "string",
+          "error": "string",
+          "id": "string",
+          "items": [],
+          "provider": "string",
+          "provider_customer_branch_id": "string",
+          "provider_customer_id": "string",
+          "status": 0,
+          "type": 0
+        },
+        "insurer_id": "string",
+        "last_update": "string",
+        "lifetime_end": "string",
+        "lifetime_start": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "policy_holder": {
+          "address": {},
+          "bank_account": {},
+          "birth_date": "string",
+          "cnae": "string",
+          "cnpj": "string",
+          "contact": {},
+          "corporate_name": "string",
+          "cpf": "string",
+          "fantasy_name": "string",
+          "first_name": "string",
+          "gender": "string",
+          "income_monthly": 0,
+          "income_yearly": 0,
+          "is_foreign": true,
+          "is_politically_exposed": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "metadata": {},
+          "occupation_code": "string",
+          "occupation_name": "string",
+          "passport": "string",
+          "rg": "string"
+        },
+        "previous_policy": {
+          "bonus_class": "string",
+          "ci_code": "string",
+          "cpf": "string",
+          "insurer_susep_code": "string",
+          "number": "string"
+        },
+        "product": {
+          "assists": [],
+          "branch": "string",
+          "coverages": [],
+          "currency": "string",
+          "description": "string",
+          "error": "string",
+          "id": "string",
+          "insurer": {},
+          "insurer_id": "string",
+          "is_dynamic": true,
+          "judicial_appeals": [],
+          "metadata": {},
+          "modalities": [],
+          "name": "string",
+          "optionals": [],
+          "questions": [],
+          "schema": {},
+          "susep": "string",
+          "type": 0
+        },
+        "product_id": "string",
+        "reversal_amount": 0,
+        "reversal_bank_account": {
+          "account": "string",
+          "account_digit": "string",
+          "agency": "string",
+          "bank_code": "string"
+        },
+        "reversal_method": "string",
+        "status": 0,
+        "warnings": [
+          {}
+        ]
+      }
+    }
+  ],
+  "id": "string",
+  "insurer_id": "string",
+  "last_update": "string",
+  "sale_id": "string"
+}
+```
+
+<h3 id="retrieve-important-data-after-sale-is-completed.-retrieve-status-changes,-policy,-and-other-events.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[ConsultantTimeline](#schemaconsultanttimeline)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+OAuth2
+</aside>
+
+## ListLead
+
+<a id="opIdListLead"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.onli.com.br/v1/leads \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://api.onli.com.br/v1/leads',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.onli.com.br/v1/leads", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /leads`
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "error": "string",
+  "items": [
+    {
+      "broker_channel": {
+        "broker_id": "string",
+        "description": "string",
+        "error": "string",
+        "id": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "name": "string",
+        "pro_labor_document": "string",
+        "stipulate": {
+          "date": "string",
+          "error": "string",
+          "id": "string",
+          "insurer_id": "string",
+          "last_update": "string",
+          "name": "string",
+          "pro_labor_document": "string",
+          "website_pages": [],
+          "website_url": "string"
+        },
+        "stipulate_id": "string",
+        "type": "string"
+      },
+      "broker_channel_id": "string",
+      "broker_id": "string",
+      "broker_product": {
+        "agency_percent": 0,
+        "broker_id": "string",
+        "commercial_image": "string",
+        "commercial_text": "string",
+        "commission_percent": 0,
+        "description": "string",
+        "error": "string",
+        "id": "string",
+        "is_restricted": true,
+        "name": "string",
+        "participation_rules": "string",
+        "pro_labor_percent": 0,
+        "product": {
+          "assists": [],
+          "branch": "string",
+          "coverages": [],
+          "currency": "string",
+          "description": "string",
+          "error": "string",
+          "id": "string",
+          "insurer": {},
+          "insurer_id": "string",
+          "is_dynamic": true,
+          "judicial_appeals": [],
+          "metadata": {},
+          "modalities": [],
+          "name": "string",
+          "optionals": [],
+          "questions": [],
+          "schema": {},
+          "susep": "string",
+          "type": 0
+        },
+        "product_id": "string"
+      },
+      "broker_product_id": "string",
+      "email": "string",
+      "error": "string",
+      "id": "string",
+      "name": "string",
+      "phone": "string"
+    }
+  ],
+  "total": 0
+}
+```
+
+<h3 id="listlead-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[ListLead](#schemalistlead)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+OAuth2
+</aside>
+
+## PostLead
+
+<a id="opIdPostLead"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.onli.com.br/v1/leads \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer xxx' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+const inputBody = '{
+  "broker_channel_id": "string",
+  "broker_id": "string",
+  "broker_product_id": "string",
+  "email": "string",
+  "name": "string",
+  "phone": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Authorization':'Bearer xxx',
+  'Accept':'application/json'
+};
+
+fetch('https://api.onli.com.br/v1/leads',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Authorization": []string{"Bearer xxx"},
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.onli.com.br/v1/leads", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /leads`
+
+> Body parameter
+
+```json
+{
+  "broker_channel_id": "string",
+  "broker_id": "string",
+  "broker_product_id": "string",
+  "email": "string",
+  "name": "string",
+  "phone": "string"
+}
+```
+
+<h3 id="postlead-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[PostLead](#schemapostlead)|false|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "broker_channel": {
+    "broker_id": "string",
+    "description": "string",
+    "error": "string",
+    "id": "string",
+    "metadata": {
+      "property1": "string",
+      "property2": "string"
+    },
+    "name": "string",
+    "pro_labor_document": "string",
+    "stipulate": {
+      "date": "string",
+      "error": "string",
+      "id": "string",
+      "insurer_id": "string",
+      "last_update": "string",
+      "name": "string",
+      "pro_labor_document": "string",
+      "website_pages": [
+        {
+          "product": {},
+          "product_id": "string",
+          "url": "string"
+        }
+      ],
+      "website_url": "string"
+    },
+    "stipulate_id": "string",
+    "type": "string"
+  },
+  "broker_channel_id": "string",
+  "broker_id": "string",
+  "broker_product": {
+    "agency_percent": 0,
+    "broker_id": "string",
+    "commercial_image": "string",
+    "commercial_text": "string",
+    "commission_percent": 0,
+    "description": "string",
+    "error": "string",
+    "id": "string",
+    "is_restricted": true,
+    "name": "string",
+    "participation_rules": "string",
+    "pro_labor_percent": 0,
+    "product": {
+      "assists": [
+        {
+          "description": "string",
+          "id": "string",
+          "metadata": {},
+          "name": "string",
+          "options": []
+        }
+      ],
+      "branch": "string",
+      "coverages": [
+        {
+          "coverages": [],
+          "default": "string",
+          "description": "string",
+          "id": "string",
+          "metadata": {},
+          "multiple": true,
+          "name": "string",
+          "options": [],
+          "range": [],
+          "required": true
+        }
+      ],
+      "currency": "string",
+      "description": "string",
+      "error": "string",
+      "id": "string",
+      "insurer": {
+        "address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "cnpj": "string",
+        "contact": {
+          "email": "string",
+          "mobile_phone": "string",
+          "phone": "string"
+        },
+        "credential_provider_key": "string",
+        "customer_id": "string",
+        "error": "string",
+        "id": "string",
+        "name": "string"
+      },
+      "insurer_id": "string",
+      "is_dynamic": true,
+      "judicial_appeals": [
+        0
+      ],
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "modalities": [
+        0
+      ],
+      "name": "string",
+      "optionals": [
+        {
+          "description": "string",
+          "id": "string",
+          "metadata": {},
+          "name": "string"
+        }
+      ],
+      "questions": [
+        {
+          "default": "string",
+          "description": "string",
+          "id": "string",
+          "metadata": {},
+          "multiple": true,
+          "name": "string",
+          "options": [],
+          "questions": [],
+          "range": [],
+          "relevance": "string",
+          "required": true
+        }
+      ],
+      "schema": {
+        "default": {
+          "agency_percent": 0,
+          "commission_percent": 0,
+          "pro_labor_percent": 0
+        },
+        "maximum": {
+          "agency_percent": 0,
+          "commission_percent": 0,
+          "pro_labor_percent": 0
+        },
+        "minimum": {
+          "agency_percent": 0,
+          "commission_percent": 0,
+          "pro_labor_percent": 0
+        }
+      },
+      "susep": "string",
+      "type": 0
+    },
+    "product_id": "string"
+  },
+  "broker_product_id": "string",
+  "email": "string",
+  "error": "string",
+  "id": "string",
+  "name": "string",
+  "phone": "string"
+}
+```
+
+<h3 id="postlead-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[LeadComplete](#schemaleadcomplete)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+OAuth2
+</aside>
+
+## GetMerchantStore
+
+<a id="opIdGetMerchantStore"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.onli.com.br/v1/merchant/stores/{brokerChannelId} \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://api.onli.com.br/v1/merchant/stores/{brokerChannelId}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.onli.com.br/v1/merchant/stores/{brokerChannelId}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /merchant/stores/{brokerChannelId}`
+
+<h3 id="get-the-marketplace-store,-retrieve-broker-products-in-the-channel.-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|brokerChannelId|path|string|true|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "broker_channel_id": "string",
+  "broker_id": "string",
+  "broker_products": [
+    {
+      "agency_percent": 0,
+      "broker_id": "string",
+      "commercial_image": "string",
+      "commercial_text": "string",
+      "commission_percent": 0,
+      "description": "string",
+      "error": "string",
+      "id": "string",
+      "is_restricted": true,
+      "name": "string",
+      "participation_rules": "string",
+      "pro_labor_percent": 0,
+      "product": {
+        "assists": [
+          {}
+        ],
+        "branch": "string",
+        "coverages": [
+          {}
+        ],
+        "currency": "string",
+        "description": "string",
+        "error": "string",
+        "id": "string",
+        "insurer": {
+          "address": {},
+          "cnpj": "string",
+          "contact": {},
+          "credential_provider_key": "string",
+          "customer_id": "string",
+          "error": "string",
+          "id": "string",
+          "name": "string"
+        },
+        "insurer_id": "string",
+        "is_dynamic": true,
+        "judicial_appeals": [
+          0
+        ],
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "modalities": [
+          0
+        ],
+        "name": "string",
+        "optionals": [
+          {}
+        ],
+        "questions": [
+          {}
+        ],
+        "schema": {
+          "default": {},
+          "maximum": {},
+          "minimum": {}
+        },
+        "susep": "string",
+        "type": 0
+      },
+      "product_id": "string"
+    }
+  ],
+  "broker_products_ids": [
+    "string"
+  ],
+  "logo_url": "string",
+  "stipulate": {
+    "date": "string",
+    "error": "string",
+    "id": "string",
+    "insurer_id": "string",
+    "last_update": "string",
+    "name": "string",
+    "pro_labor_document": "string",
+    "website_pages": [
+      {
+        "product": {
+          "assists": [],
+          "branch": "string",
+          "coverages": [],
+          "currency": "string",
+          "description": "string",
+          "error": "string",
+          "id": "string",
+          "insurer": {},
+          "insurer_id": "string",
+          "is_dynamic": true,
+          "judicial_appeals": [],
+          "metadata": {},
+          "modalities": [],
+          "name": "string",
+          "optionals": [],
+          "questions": [],
+          "schema": {},
+          "susep": "string",
+          "type": 0
+        },
+        "product_id": "string",
+        "url": "string"
+      }
+    ],
+    "website_url": "string"
+  },
+  "stipulate_id": "string"
+}
+```
+
+<h3 id="get-the-marketplace-store,-retrieve-broker-products-in-the-channel.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[StoreComplete](#schemastorecomplete)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+OAuth2
+</aside>
+
+## GetMerchantVendor
+
+<a id="opIdGetMarketplaceVendor"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.onli.com.br/v1/merchant/vendor/{productId} \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://api.onli.com.br/v1/merchant/vendor/{productId}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.onli.com.br/v1/merchant/vendor/{productId}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /merchant/vendor/{productId}`
+
+<h3 id="get-information-about-an-insurer-product,-using-his-id.-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|productId|path|string|true|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "active": true,
+  "agency_percent": 0,
+  "broker_id": "string",
+  "commission_percent": 0,
+  "date": "string",
+  "error": "string",
+  "has_determined_percent": true,
+  "id": "string",
+  "insurer_id": "string",
+  "last_update": "string",
+  "pro_labor_percent": 0,
+  "product": {
+    "assists": [
+      {
+        "description": "string",
+        "id": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "name": "string",
+        "options": [
+          {}
+        ]
+      }
+    ],
+    "branch": "string",
+    "coverages": [
+      {
+        "coverages": [
+          {}
+        ],
+        "default": "string",
+        "description": "string",
+        "id": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "multiple": true,
+        "name": "string",
+        "options": [
+          {}
+        ],
+        "range": [
+          0
+        ],
+        "required": true
+      }
+    ],
+    "currency": "string",
+    "description": "string",
+    "error": "string",
+    "id": "string",
+    "insurer": {
+      "address": {
+        "city_name": "string",
+        "complement": "string",
+        "district_name": "string",
+        "number": "string",
+        "state_code": "string",
+        "street_name": "string",
+        "zip_code": "string"
+      },
+      "cnpj": "string",
+      "contact": {
+        "email": "string",
+        "mobile_phone": "string",
+        "phone": "string"
+      },
+      "credential_provider_key": "string",
+      "customer_id": "string",
+      "error": "string",
+      "id": "string",
+      "name": "string"
+    },
+    "insurer_id": "string",
+    "is_dynamic": true,
+    "judicial_appeals": [
+      0
+    ],
+    "metadata": {
+      "property1": "string",
+      "property2": "string"
+    },
+    "modalities": [
+      0
+    ],
+    "name": "string",
+    "optionals": [
+      {
+        "description": "string",
+        "id": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "name": "string"
+      }
+    ],
+    "questions": [
+      {
+        "default": "string",
+        "description": "string",
+        "id": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "multiple": true,
+        "name": "string",
+        "options": [
+          {}
+        ],
+        "questions": [
+          {}
+        ],
+        "range": [
+          0
+        ],
+        "relevance": "string",
+        "required": true
+      }
+    ],
+    "schema": {
+      "default": {
+        "agency_percent": 0,
+        "commission_percent": 0,
+        "pro_labor_percent": 0
+      },
+      "maximum": {
+        "agency_percent": 0,
+        "commission_percent": 0,
+        "pro_labor_percent": 0
+      },
+      "minimum": {
+        "agency_percent": 0,
+        "commission_percent": 0,
+        "pro_labor_percent": 0
+      }
+    },
+    "susep": "string",
+    "type": 0
+  },
+  "product_id": "string"
+}
+```
+
+<h3 id="get-information-about-an-insurer-product,-using-his-id.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[VendorComplete](#schemavendorcomplete)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+OAuth2
+</aside>
+
+## ListQuote
+
+<a id="opIdListQuote"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.onli.com.br/v1/quotes \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://api.onli.com.br/v1/quotes',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.onli.com.br/v1/quotes", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /quotes`
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "error": "string",
+  "items": [
+    {
+      "agency_percent": 0,
+      "broker": {
+        "address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "cnpj": "string",
+        "contact": {
+          "email": "string",
+          "mobile_phone": "string",
+          "phone": "string"
+        },
+        "customer_id": "string",
+        "error": "string",
+        "id": "string",
+        "logo_url": "string",
+        "name": "string",
+        "susep": "string"
+      },
+      "broker_branch_id": "string",
+      "broker_channel": {
+        "broker_id": "string",
+        "description": "string",
+        "error": "string",
+        "id": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "name": "string",
+        "pro_labor_document": "string",
+        "stipulate": {
+          "date": "string",
+          "error": "string",
+          "id": "string",
+          "insurer_id": "string",
+          "last_update": "string",
+          "name": "string",
+          "pro_labor_document": "string",
+          "website_pages": [],
+          "website_url": "string"
+        },
+        "stipulate_id": "string",
+        "type": "string"
+      },
+      "broker_channel_id": "string",
+      "broker_id": "string",
+      "broker_product": {
+        "agency_percent": 0,
+        "broker_id": "string",
+        "commercial_image": "string",
+        "commercial_text": "string",
+        "commission_percent": 0,
+        "description": "string",
+        "error": "string",
+        "id": "string",
+        "is_restricted": true,
+        "name": "string",
+        "participation_rules": "string",
+        "pro_labor_percent": 0,
+        "product": {
+          "assists": [],
+          "branch": "string",
+          "coverages": [],
+          "currency": "string",
+          "description": "string",
+          "error": "string",
+          "id": "string",
+          "insurer": {},
+          "insurer_id": "string",
+          "is_dynamic": true,
+          "judicial_appeals": [],
+          "metadata": {},
+          "modalities": [],
+          "name": "string",
+          "optionals": [],
+          "questions": [],
+          "schema": {},
+          "susep": "string",
+          "type": 0
+        },
+        "product_id": "string"
+      },
+      "broker_product_id": "string",
+      "bundles": [
+        "string"
+      ],
+      "business_id": "string",
+      "commission_percent": 0,
+      "credential": {
+        "broker": {
+          "address": {},
+          "cnpj": "string",
+          "contact": {},
+          "customer_id": "string",
+          "error": "string",
+          "id": "string",
+          "logo_url": "string",
+          "name": "string",
+          "susep": "string"
+        },
+        "broker_id": "string",
+        "customer_branch_id": "string",
+        "customer_id": "string",
+        "error": "string",
+        "id": "string",
+        "items": [
+          {}
+        ],
+        "provider": "string",
+        "provider_customer_branch_id": "string",
+        "provider_customer_id": "string",
+        "status": 0,
+        "type": 0
+      },
+      "currency": "string",
+      "date": "string",
+      "draft_url": "string",
+      "error": "string",
+      "id": "string",
+      "insurer_branch_id": "string",
+      "insurer_id": "string",
+      "items": [
+        {
+          "adaptation_code": "string",
+          "address": {},
+          "assists": [],
+          "beneficiaries": [],
+          "beneficiaries_are_divided_by_law": true,
+          "bundle_id": "string",
+          "bundles": [],
+          "business_partners": [],
+          "business_partners_average_age": 0,
+          "business_partners_capital": 0,
+          "business_partners_quantity": 0,
+          "chassis": "string",
+          "claimant": {},
+          "construction_type": "string",
+          "coverage_amount": 0,
+          "coverages": [],
+          "dealer_exit_date_time": "string",
+          "drivers": [],
+          "employees": [],
+          "employees_average_age": 0,
+          "employees_capital": 0,
+          "employees_quantity": 0,
+          "expiration_day": 0,
+          "fipe_code": "string",
+          "fipe_percentage": 0,
+          "fuel_type": "string",
+          "has_lo_jack": true,
+          "has_tax_exemption": true,
+          "id": 0,
+          "imei": "string",
+          "installment_amount": 0,
+          "installment_quantity": 0,
+          "installments": [],
+          "insure_business_partners": true,
+          "is_0km": true,
+          "is_dealer_owner_vehicle": true,
+          "judicial_appeal": 0,
+          "judicial_appeal_percentage": 0,
+          "lat": 0,
+          "lawsuit": {},
+          "lng": 0,
+          "lo_jack_code": "string",
+          "manufacture_year": 0,
+          "manufacturer_name": "string",
+          "metadata": {},
+          "modality_type": 0,
+          "model": "string",
+          "model_name": "string",
+          "model_variant": "string",
+          "model_year": 0,
+          "motorcycle_usage": true,
+          "occupancy_type": "string",
+          "occupation_code": "string",
+          "optionals": [],
+          "phone_number": "string",
+          "plate": "string",
+          "property_type": "string",
+          "questions": [],
+          "relatives": [],
+          "residence_owner_is_policy_holder": true,
+          "robbery_protective_system": "string",
+          "seating_capacity": 0,
+          "tax_exemption_reasoning_code": "string",
+          "tax_exemption_start_date": "string",
+          "tax_exemption_type": "string",
+          "total_amount": 0,
+          "tumbled_home_owners": true,
+          "usage_code": 0,
+          "vehicle_type": "string"
+        }
+      ],
+      "lifetime_end": "string",
+      "lifetime_start": "string",
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "plan": {
+        "active": true,
+        "broker_id": "string",
+        "coverages": [
+          {}
+        ],
+        "error": "string",
+        "id": "string",
+        "installments": [
+          {}
+        ],
+        "insurer_id": "string",
+        "lifetime_days": 0,
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "name": "string",
+        "product_id": "string"
+      },
+      "plan_id": "string",
+      "policy_holder": {
+        "address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "bank_account": {
+          "account": "string",
+          "account_digit": "string",
+          "agency": "string",
+          "bank_code": "string"
+        },
+        "birth_date": "string",
+        "cnae": "string",
+        "cnpj": "string",
+        "contact": {
+          "email": "string",
+          "mobile_phone": "string",
+          "phone": "string"
+        },
+        "corporate_name": "string",
+        "cpf": "string",
+        "fantasy_name": "string",
+        "first_name": "string",
+        "gender": "string",
+        "income_monthly": 0,
+        "income_yearly": 0,
+        "is_foreign": true,
+        "is_politically_exposed": true,
+        "last_name": "string",
+        "marital_status": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "occupation_code": "string",
+        "occupation_name": "string",
+        "passport": "string",
+        "rg": "string"
+      },
+      "pro_labor_document": "string",
+      "pro_labor_percent": 0,
+      "product_id": "string",
+      "quote_request": {
+        "assists": [
+          {}
+        ],
+        "broker_channel_id": "string",
+        "broker_id": "string",
+        "broker_product_id": "string",
+        "bundles": [
+          {}
+        ],
+        "coverages": [
+          {}
+        ],
+        "currency": "string",
+        "date": "string",
+        "error": "string",
+        "id": "string",
+        "lead_id": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "modalities": [
+          0
+        ],
+        "optionals": [
+          {}
+        ],
+        "plans": [
+          {}
+        ],
+        "product_id": "string",
+        "questions": [
+          {}
+        ]
+      },
+      "quote_request_id": "string",
+      "renewal": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "status": 0,
+      "valid_until": "string",
+      "warnings": [
+        {
+          "code": 0,
+          "message": "string"
+        }
+      ]
+    }
+  ],
+  "total": 0
+}
+```
+
+<h3 id="listquote-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[ListQuote](#schemalistquote)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+OAuth2
+</aside>
+
+## PostQuote
+
+<a id="opIdPostQuote"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.onli.com.br/v1/quotes \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer xxx' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+const inputBody = '{
+  "broker_id": "string",
+  "bundles": [
+    "string"
+  ],
+  "business_id": "string",
+  "items": [
+    {
+      "adaptation_code": "string",
+      "address": {
+        "city_name": "string",
+        "complement": "string",
+        "district_name": "string",
+        "number": "string",
+        "state_code": "string",
+        "street_name": "string",
+        "zip_code": "string"
+      },
+      "assists": [
+        {
+          "assistance_option_id": "string",
+          "id": "string",
+          "premium_amount": 0
+        }
+      ],
+      "beneficiaries": [
+        {
+          "birth_date": "string",
+          "cpf": "string",
+          "first_name": "string",
+          "last_name": "string",
+          "participation": 0,
+          "questions": [],
+          "relational_type": "string",
+          "rg": "string"
+        }
+      ],
+      "beneficiaries_are_divided_by_law": true,
+      "bundle_id": "string",
+      "bundles": [
+        {
+          "assists": [],
+          "coverages": [],
+          "id": "string",
+          "optionals": []
+        }
+      ],
+      "business_partners": [
+        {
+          "address": {},
+          "bank_account": {},
+          "birth_date": "string",
+          "cnae": "string",
+          "cnpj": "string",
+          "contact": {},
+          "corporate_name": "string",
+          "cpf": "string",
+          "fantasy_name": "string",
+          "first_name": "string",
+          "gender": "string",
+          "income_monthly": 0,
+          "income_yearly": 0,
+          "is_foreign": true,
+          "is_politically_exposed": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "metadata": {},
+          "occupation_code": "string",
+          "occupation_name": "string",
+          "passport": "string",
+          "rg": "string"
+        }
+      ],
+      "business_partners_average_age": 0,
+      "business_partners_capital": 0,
+      "business_partners_quantity": 0,
+      "chassis": "string",
+      "claimant": {
+        "address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "bank_account": {
+          "account": "string",
+          "account_digit": "string",
+          "agency": "string",
+          "bank_code": "string"
+        },
+        "birth_date": "string",
+        "cnae": "string",
+        "cnpj": "string",
+        "contact": {
+          "email": "string",
+          "mobile_phone": "string",
+          "phone": "string"
+        },
+        "corporate_name": "string",
+        "cpf": "string",
+        "fantasy_name": "string",
+        "first_name": "string",
+        "gender": "string",
+        "income_monthly": 0,
+        "income_yearly": 0,
+        "is_foreign": true,
+        "is_politically_exposed": true,
+        "last_name": "string",
+        "marital_status": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "occupation_code": "string",
+        "occupation_name": "string",
+        "passport": "string",
+        "rg": "string"
+      },
+      "construction_type": "string",
+      "coverage_amount": 0,
+      "coverages": [
+        {
+          "coverage_option_id": "string",
+          "deductible_amount": 0,
+          "id": "string",
+          "insured_amount": 0,
+          "insured_amount_limit": 0,
+          "insured_days": 0,
+          "metadata": {},
+          "premium_amount": 0,
+          "value": "string"
+        }
+      ],
+      "dealer_exit_date_time": "string",
+      "drivers": [
+        {
+          "birth_date": "string",
+          "cpf": "string",
+          "days_per_week": 0,
+          "driver_type": "string",
+          "first_name": "string",
+          "gender": "string",
+          "is_policy_holder": true,
+          "is_reference_driver": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "questions": [],
+          "relational_type": "string"
+        }
+      ],
+      "employees": [
+        {
+          "address": {},
+          "bank_account": {},
+          "birth_date": "string",
+          "cnae": "string",
+          "cnpj": "string",
+          "contact": {},
+          "corporate_name": "string",
+          "cpf": "string",
+          "fantasy_name": "string",
+          "first_name": "string",
+          "gender": "string",
+          "income_monthly": 0,
+          "income_yearly": 0,
+          "is_foreign": true,
+          "is_politically_exposed": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "metadata": {},
+          "occupation_code": "string",
+          "occupation_name": "string",
+          "passport": "string",
+          "rg": "string"
+        }
+      ],
+      "employees_average_age": 0,
+      "employees_capital": 0,
+      "employees_quantity": 0,
+      "expiration_day": 0,
+      "fipe_code": "string",
+      "fipe_percentage": 0,
+      "fuel_type": "string",
+      "has_lo_jack": true,
+      "has_tax_exemption": true,
+      "id": 0,
+      "imei": "string",
+      "installment_amount": 0,
+      "installment_quantity": 0,
+      "installments": [
+        {
+          "amount": 0,
+          "bundle_id": "string",
+          "first_payment_amount": 0,
+          "id": "string",
+          "installment_quantity": 0,
+          "interest_amount": 0,
+          "interest_percent": 0,
+          "is_chosen": true,
+          "payment_methods": [],
+          "recurrence": {},
+          "taxes": [],
+          "total_amount": 0
+        }
+      ],
+      "insure_business_partners": true,
+      "is_0km": true,
+      "is_dealer_owner_vehicle": true,
+      "judicial_appeal": 0,
+      "judicial_appeal_percentage": 0,
+      "lat": 0,
+      "lawsuit": {
+        "court_name": "string",
+        "process_content": "string",
+        "process_number": "string",
+        "tribunal_city_name": "string",
+        "tribunal_name": "string",
+        "tribunal_state_code": "string"
+      },
+      "lng": 0,
+      "lo_jack_code": "string",
+      "manufacture_year": 0,
+      "manufacturer_name": "string",
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "modality_type": 0,
+      "model": "string",
+      "model_name": "string",
+      "model_variant": "string",
+      "model_year": 0,
+      "motorcycle_usage": true,
+      "occupancy_type": "string",
+      "occupation_code": "string",
+      "optionals": [
+        {
+          "id": "string",
+          "premium_amount": 0
+        }
+      ],
+      "phone_number": "string",
+      "plate": "string",
+      "property_type": "string",
+      "questions": [
+        {
+          "id": "string",
+          "value": "string"
+        }
+      ],
+      "relatives": [
+        {
+          "birth_date": "string",
+          "cpf": "string",
+          "first_name": "string",
+          "last_name": "string",
+          "relational_type": "string",
+          "rg": "string"
+        }
+      ],
+      "residence_owner_is_policy_holder": true,
+      "robbery_protective_system": "string",
+      "seating_capacity": 0,
+      "tax_exemption_reasoning_code": "string",
+      "tax_exemption_start_date": "string",
+      "tax_exemption_type": "string",
+      "total_amount": 0,
+      "tumbled_home_owners": true,
+      "usage_code": 0,
+      "vehicle_type": "string"
+    }
+  ],
+  "lifetime_end": "string",
+  "lifetime_start": "string",
+  "metadata": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "plan_id": "string",
+  "policy_holder": {
+    "address": {
+      "city_name": "string",
+      "complement": "string",
+      "district_name": "string",
+      "number": "string",
+      "state_code": "string",
+      "street_name": "string",
+      "zip_code": "string"
+    },
+    "bank_account": {
+      "account": "string",
+      "account_digit": "string",
+      "agency": "string",
+      "bank_code": "string"
+    },
+    "birth_date": "string",
+    "cnae": "string",
+    "cnpj": "string",
+    "contact": {
+      "email": "string",
+      "mobile_phone": "string",
+      "phone": "string"
+    },
+    "corporate_name": "string",
+    "cpf": "string",
+    "fantasy_name": "string",
+    "first_name": "string",
+    "gender": "string",
+    "income_monthly": 0,
+    "income_yearly": 0,
+    "is_foreign": true,
+    "is_politically_exposed": true,
+    "last_name": "string",
+    "marital_status": "string",
+    "metadata": {
+      "property1": "string",
+      "property2": "string"
+    },
+    "occupation_code": "string",
+    "occupation_name": "string",
+    "passport": "string",
+    "rg": "string"
+  },
+  "quote_request_id": "string",
+  "renewal": {
+    "property1": "string",
+    "property2": "string"
+  }
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Authorization':'Bearer xxx',
+  'Accept':'application/json'
+};
+
+fetch('https://api.onli.com.br/v1/quotes',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Authorization": []string{"Bearer xxx"},
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.onli.com.br/v1/quotes", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /quotes`
+
+> Body parameter
+
+```json
+{
+  "broker_id": "string",
+  "bundles": [
+    "string"
+  ],
+  "business_id": "string",
+  "items": [
+    {
+      "adaptation_code": "string",
+      "address": {
+        "city_name": "string",
+        "complement": "string",
+        "district_name": "string",
+        "number": "string",
+        "state_code": "string",
+        "street_name": "string",
+        "zip_code": "string"
+      },
+      "assists": [
+        {
+          "assistance_option_id": "string",
+          "id": "string",
+          "premium_amount": 0
+        }
+      ],
+      "beneficiaries": [
+        {
+          "birth_date": "string",
+          "cpf": "string",
+          "first_name": "string",
+          "last_name": "string",
+          "participation": 0,
+          "questions": [],
+          "relational_type": "string",
+          "rg": "string"
+        }
+      ],
+      "beneficiaries_are_divided_by_law": true,
+      "bundle_id": "string",
+      "bundles": [
+        {
+          "assists": [],
+          "coverages": [],
+          "id": "string",
+          "optionals": []
+        }
+      ],
+      "business_partners": [
+        {
+          "address": {},
+          "bank_account": {},
+          "birth_date": "string",
+          "cnae": "string",
+          "cnpj": "string",
+          "contact": {},
+          "corporate_name": "string",
+          "cpf": "string",
+          "fantasy_name": "string",
+          "first_name": "string",
+          "gender": "string",
+          "income_monthly": 0,
+          "income_yearly": 0,
+          "is_foreign": true,
+          "is_politically_exposed": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "metadata": {},
+          "occupation_code": "string",
+          "occupation_name": "string",
+          "passport": "string",
+          "rg": "string"
+        }
+      ],
+      "business_partners_average_age": 0,
+      "business_partners_capital": 0,
+      "business_partners_quantity": 0,
+      "chassis": "string",
+      "claimant": {
+        "address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "bank_account": {
+          "account": "string",
+          "account_digit": "string",
+          "agency": "string",
+          "bank_code": "string"
+        },
+        "birth_date": "string",
+        "cnae": "string",
+        "cnpj": "string",
+        "contact": {
+          "email": "string",
+          "mobile_phone": "string",
+          "phone": "string"
+        },
+        "corporate_name": "string",
+        "cpf": "string",
+        "fantasy_name": "string",
+        "first_name": "string",
+        "gender": "string",
+        "income_monthly": 0,
+        "income_yearly": 0,
+        "is_foreign": true,
+        "is_politically_exposed": true,
+        "last_name": "string",
+        "marital_status": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "occupation_code": "string",
+        "occupation_name": "string",
+        "passport": "string",
+        "rg": "string"
+      },
+      "construction_type": "string",
+      "coverage_amount": 0,
+      "coverages": [
+        {
+          "coverage_option_id": "string",
+          "deductible_amount": 0,
+          "id": "string",
+          "insured_amount": 0,
+          "insured_amount_limit": 0,
+          "insured_days": 0,
+          "metadata": {},
+          "premium_amount": 0,
+          "value": "string"
+        }
+      ],
+      "dealer_exit_date_time": "string",
+      "drivers": [
+        {
+          "birth_date": "string",
+          "cpf": "string",
+          "days_per_week": 0,
+          "driver_type": "string",
+          "first_name": "string",
+          "gender": "string",
+          "is_policy_holder": true,
+          "is_reference_driver": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "questions": [],
+          "relational_type": "string"
+        }
+      ],
+      "employees": [
+        {
+          "address": {},
+          "bank_account": {},
+          "birth_date": "string",
+          "cnae": "string",
+          "cnpj": "string",
+          "contact": {},
+          "corporate_name": "string",
+          "cpf": "string",
+          "fantasy_name": "string",
+          "first_name": "string",
+          "gender": "string",
+          "income_monthly": 0,
+          "income_yearly": 0,
+          "is_foreign": true,
+          "is_politically_exposed": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "metadata": {},
+          "occupation_code": "string",
+          "occupation_name": "string",
+          "passport": "string",
+          "rg": "string"
+        }
+      ],
+      "employees_average_age": 0,
+      "employees_capital": 0,
+      "employees_quantity": 0,
+      "expiration_day": 0,
+      "fipe_code": "string",
+      "fipe_percentage": 0,
+      "fuel_type": "string",
+      "has_lo_jack": true,
+      "has_tax_exemption": true,
+      "id": 0,
+      "imei": "string",
+      "installment_amount": 0,
+      "installment_quantity": 0,
+      "installments": [
+        {
+          "amount": 0,
+          "bundle_id": "string",
+          "first_payment_amount": 0,
+          "id": "string",
+          "installment_quantity": 0,
+          "interest_amount": 0,
+          "interest_percent": 0,
+          "is_chosen": true,
+          "payment_methods": [],
+          "recurrence": {},
+          "taxes": [],
+          "total_amount": 0
+        }
+      ],
+      "insure_business_partners": true,
+      "is_0km": true,
+      "is_dealer_owner_vehicle": true,
+      "judicial_appeal": 0,
+      "judicial_appeal_percentage": 0,
+      "lat": 0,
+      "lawsuit": {
+        "court_name": "string",
+        "process_content": "string",
+        "process_number": "string",
+        "tribunal_city_name": "string",
+        "tribunal_name": "string",
+        "tribunal_state_code": "string"
+      },
+      "lng": 0,
+      "lo_jack_code": "string",
+      "manufacture_year": 0,
+      "manufacturer_name": "string",
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "modality_type": 0,
+      "model": "string",
+      "model_name": "string",
+      "model_variant": "string",
+      "model_year": 0,
+      "motorcycle_usage": true,
+      "occupancy_type": "string",
+      "occupation_code": "string",
+      "optionals": [
+        {
+          "id": "string",
+          "premium_amount": 0
+        }
+      ],
+      "phone_number": "string",
+      "plate": "string",
+      "property_type": "string",
+      "questions": [
+        {
+          "id": "string",
+          "value": "string"
+        }
+      ],
+      "relatives": [
+        {
+          "birth_date": "string",
+          "cpf": "string",
+          "first_name": "string",
+          "last_name": "string",
+          "relational_type": "string",
+          "rg": "string"
+        }
+      ],
+      "residence_owner_is_policy_holder": true,
+      "robbery_protective_system": "string",
+      "seating_capacity": 0,
+      "tax_exemption_reasoning_code": "string",
+      "tax_exemption_start_date": "string",
+      "tax_exemption_type": "string",
+      "total_amount": 0,
+      "tumbled_home_owners": true,
+      "usage_code": 0,
+      "vehicle_type": "string"
+    }
+  ],
+  "lifetime_end": "string",
+  "lifetime_start": "string",
+  "metadata": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "plan_id": "string",
+  "policy_holder": {
+    "address": {
+      "city_name": "string",
+      "complement": "string",
+      "district_name": "string",
+      "number": "string",
+      "state_code": "string",
+      "street_name": "string",
+      "zip_code": "string"
+    },
+    "bank_account": {
+      "account": "string",
+      "account_digit": "string",
+      "agency": "string",
+      "bank_code": "string"
+    },
+    "birth_date": "string",
+    "cnae": "string",
+    "cnpj": "string",
+    "contact": {
+      "email": "string",
+      "mobile_phone": "string",
+      "phone": "string"
+    },
+    "corporate_name": "string",
+    "cpf": "string",
+    "fantasy_name": "string",
+    "first_name": "string",
+    "gender": "string",
+    "income_monthly": 0,
+    "income_yearly": 0,
+    "is_foreign": true,
+    "is_politically_exposed": true,
+    "last_name": "string",
+    "marital_status": "string",
+    "metadata": {
+      "property1": "string",
+      "property2": "string"
+    },
+    "occupation_code": "string",
+    "occupation_name": "string",
+    "passport": "string",
+    "rg": "string"
+  },
+  "quote_request_id": "string",
+  "renewal": {
+    "property1": "string",
+    "property2": "string"
+  }
+}
+```
+
+<h3 id="postquote-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[PostQuote](#schemapostquote)|false|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "agency_percent": 0,
+  "broker": {
+    "address": {
+      "city_name": "string",
+      "complement": "string",
+      "district_name": "string",
+      "number": "string",
+      "state_code": "string",
+      "street_name": "string",
+      "zip_code": "string"
+    },
+    "cnpj": "string",
+    "contact": {
+      "email": "string",
+      "mobile_phone": "string",
+      "phone": "string"
+    },
+    "customer_id": "string",
+    "error": "string",
+    "id": "string",
+    "logo_url": "string",
+    "name": "string",
+    "susep": "string"
+  },
+  "broker_branch_id": "string",
+  "broker_channel": {
+    "broker_id": "string",
+    "description": "string",
+    "error": "string",
+    "id": "string",
+    "metadata": {
+      "property1": "string",
+      "property2": "string"
+    },
+    "name": "string",
+    "pro_labor_document": "string",
+    "stipulate": {
+      "date": "string",
+      "error": "string",
+      "id": "string",
+      "insurer_id": "string",
+      "last_update": "string",
+      "name": "string",
+      "pro_labor_document": "string",
+      "website_pages": [
+        {
+          "product": {},
+          "product_id": "string",
+          "url": "string"
+        }
+      ],
+      "website_url": "string"
+    },
+    "stipulate_id": "string",
+    "type": "string"
+  },
+  "broker_channel_id": "string",
+  "broker_id": "string",
+  "broker_product": {
+    "agency_percent": 0,
+    "broker_id": "string",
+    "commercial_image": "string",
+    "commercial_text": "string",
+    "commission_percent": 0,
+    "description": "string",
+    "error": "string",
+    "id": "string",
+    "is_restricted": true,
+    "name": "string",
+    "participation_rules": "string",
+    "pro_labor_percent": 0,
+    "product": {
+      "assists": [
+        {
+          "description": "string",
+          "id": "string",
+          "metadata": {},
+          "name": "string",
+          "options": []
+        }
+      ],
+      "branch": "string",
+      "coverages": [
+        {
+          "coverages": [],
+          "default": "string",
+          "description": "string",
+          "id": "string",
+          "metadata": {},
+          "multiple": true,
+          "name": "string",
+          "options": [],
+          "range": [],
+          "required": true
+        }
+      ],
+      "currency": "string",
+      "description": "string",
+      "error": "string",
+      "id": "string",
+      "insurer": {
+        "address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "cnpj": "string",
+        "contact": {
+          "email": "string",
+          "mobile_phone": "string",
+          "phone": "string"
+        },
+        "credential_provider_key": "string",
+        "customer_id": "string",
+        "error": "string",
+        "id": "string",
+        "name": "string"
+      },
+      "insurer_id": "string",
+      "is_dynamic": true,
+      "judicial_appeals": [
+        0
+      ],
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "modalities": [
+        0
+      ],
+      "name": "string",
+      "optionals": [
+        {
+          "description": "string",
+          "id": "string",
+          "metadata": {},
+          "name": "string"
+        }
+      ],
+      "questions": [
+        {
+          "default": "string",
+          "description": "string",
+          "id": "string",
+          "metadata": {},
+          "multiple": true,
+          "name": "string",
+          "options": [],
+          "questions": [],
+          "range": [],
+          "relevance": "string",
+          "required": true
+        }
+      ],
+      "schema": {
+        "default": {
+          "agency_percent": 0,
+          "commission_percent": 0,
+          "pro_labor_percent": 0
+        },
+        "maximum": {
+          "agency_percent": 0,
+          "commission_percent": 0,
+          "pro_labor_percent": 0
+        },
+        "minimum": {
+          "agency_percent": 0,
+          "commission_percent": 0,
+          "pro_labor_percent": 0
+        }
+      },
+      "susep": "string",
+      "type": 0
+    },
+    "product_id": "string"
+  },
+  "broker_product_id": "string",
+  "bundles": [
+    "string"
+  ],
+  "business_id": "string",
+  "commission_percent": 0,
+  "credential": {
+    "broker": {
+      "address": {
+        "city_name": "string",
+        "complement": "string",
+        "district_name": "string",
+        "number": "string",
+        "state_code": "string",
+        "street_name": "string",
+        "zip_code": "string"
+      },
+      "cnpj": "string",
+      "contact": {
+        "email": "string",
+        "mobile_phone": "string",
+        "phone": "string"
+      },
+      "customer_id": "string",
+      "error": "string",
+      "id": "string",
+      "logo_url": "string",
+      "name": "string",
+      "susep": "string"
+    },
+    "broker_id": "string",
+    "customer_branch_id": "string",
+    "customer_id": "string",
+    "error": "string",
+    "id": "string",
+    "items": [
+      {
+        "key": "string",
+        "value": "string"
+      }
+    ],
+    "provider": "string",
+    "provider_customer_branch_id": "string",
+    "provider_customer_id": "string",
+    "status": 0,
+    "type": 0
+  },
+  "currency": "string",
+  "date": "string",
+  "draft_url": "string",
+  "error": "string",
+  "id": "string",
+  "insurer_branch_id": "string",
+  "insurer_id": "string",
+  "items": [
+    {
+      "adaptation_code": "string",
+      "address": {
+        "city_name": "string",
+        "complement": "string",
+        "district_name": "string",
+        "number": "string",
+        "state_code": "string",
+        "street_name": "string",
+        "zip_code": "string"
+      },
+      "assists": [
+        {
+          "assistance_option_id": "string",
+          "id": "string",
+          "premium_amount": 0
+        }
+      ],
+      "beneficiaries": [
+        {
+          "birth_date": "string",
+          "cpf": "string",
+          "first_name": "string",
+          "last_name": "string",
+          "participation": 0,
+          "questions": [],
+          "relational_type": "string",
+          "rg": "string"
+        }
+      ],
+      "beneficiaries_are_divided_by_law": true,
+      "bundle_id": "string",
+      "bundles": [
+        {
+          "assists": [],
+          "coverages": [],
+          "id": "string",
+          "optionals": []
+        }
+      ],
+      "business_partners": [
+        {
+          "address": {},
+          "bank_account": {},
+          "birth_date": "string",
+          "cnae": "string",
+          "cnpj": "string",
+          "contact": {},
+          "corporate_name": "string",
+          "cpf": "string",
+          "fantasy_name": "string",
+          "first_name": "string",
+          "gender": "string",
+          "income_monthly": 0,
+          "income_yearly": 0,
+          "is_foreign": true,
+          "is_politically_exposed": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "metadata": {},
+          "occupation_code": "string",
+          "occupation_name": "string",
+          "passport": "string",
+          "rg": "string"
+        }
+      ],
+      "business_partners_average_age": 0,
+      "business_partners_capital": 0,
+      "business_partners_quantity": 0,
+      "chassis": "string",
+      "claimant": {
+        "address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "bank_account": {
+          "account": "string",
+          "account_digit": "string",
+          "agency": "string",
+          "bank_code": "string"
+        },
+        "birth_date": "string",
+        "cnae": "string",
+        "cnpj": "string",
+        "contact": {
+          "email": "string",
+          "mobile_phone": "string",
+          "phone": "string"
+        },
+        "corporate_name": "string",
+        "cpf": "string",
+        "fantasy_name": "string",
+        "first_name": "string",
+        "gender": "string",
+        "income_monthly": 0,
+        "income_yearly": 0,
+        "is_foreign": true,
+        "is_politically_exposed": true,
+        "last_name": "string",
+        "marital_status": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "occupation_code": "string",
+        "occupation_name": "string",
+        "passport": "string",
+        "rg": "string"
+      },
+      "construction_type": "string",
+      "coverage_amount": 0,
+      "coverages": [
+        {
+          "coverage_option_id": "string",
+          "deductible_amount": 0,
+          "id": "string",
+          "insured_amount": 0,
+          "insured_amount_limit": 0,
+          "insured_days": 0,
+          "metadata": {},
+          "premium_amount": 0,
+          "value": "string"
+        }
+      ],
+      "dealer_exit_date_time": "string",
+      "drivers": [
+        {
+          "birth_date": "string",
+          "cpf": "string",
+          "days_per_week": 0,
+          "driver_type": "string",
+          "first_name": "string",
+          "gender": "string",
+          "is_policy_holder": true,
+          "is_reference_driver": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "questions": [],
+          "relational_type": "string"
+        }
+      ],
+      "employees": [
+        {
+          "address": {},
+          "bank_account": {},
+          "birth_date": "string",
+          "cnae": "string",
+          "cnpj": "string",
+          "contact": {},
+          "corporate_name": "string",
+          "cpf": "string",
+          "fantasy_name": "string",
+          "first_name": "string",
+          "gender": "string",
+          "income_monthly": 0,
+          "income_yearly": 0,
+          "is_foreign": true,
+          "is_politically_exposed": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "metadata": {},
+          "occupation_code": "string",
+          "occupation_name": "string",
+          "passport": "string",
+          "rg": "string"
+        }
+      ],
+      "employees_average_age": 0,
+      "employees_capital": 0,
+      "employees_quantity": 0,
+      "expiration_day": 0,
+      "fipe_code": "string",
+      "fipe_percentage": 0,
+      "fuel_type": "string",
+      "has_lo_jack": true,
+      "has_tax_exemption": true,
+      "id": 0,
+      "imei": "string",
+      "installment_amount": 0,
+      "installment_quantity": 0,
+      "installments": [
+        {
+          "amount": 0,
+          "bundle_id": "string",
+          "first_payment_amount": 0,
+          "id": "string",
+          "installment_quantity": 0,
+          "interest_amount": 0,
+          "interest_percent": 0,
+          "is_chosen": true,
+          "payment_methods": [],
+          "recurrence": {},
+          "taxes": [],
+          "total_amount": 0
+        }
+      ],
+      "insure_business_partners": true,
+      "is_0km": true,
+      "is_dealer_owner_vehicle": true,
+      "judicial_appeal": 0,
+      "judicial_appeal_percentage": 0,
+      "lat": 0,
+      "lawsuit": {
+        "court_name": "string",
+        "process_content": "string",
+        "process_number": "string",
+        "tribunal_city_name": "string",
+        "tribunal_name": "string",
+        "tribunal_state_code": "string"
+      },
+      "lng": 0,
+      "lo_jack_code": "string",
+      "manufacture_year": 0,
+      "manufacturer_name": "string",
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "modality_type": 0,
+      "model": "string",
+      "model_name": "string",
+      "model_variant": "string",
+      "model_year": 0,
+      "motorcycle_usage": true,
+      "occupancy_type": "string",
+      "occupation_code": "string",
+      "optionals": [
+        {
+          "id": "string",
+          "premium_amount": 0
+        }
+      ],
+      "phone_number": "string",
+      "plate": "string",
+      "property_type": "string",
+      "questions": [
+        {
+          "id": "string",
+          "value": "string"
+        }
+      ],
+      "relatives": [
+        {
+          "birth_date": "string",
+          "cpf": "string",
+          "first_name": "string",
+          "last_name": "string",
+          "relational_type": "string",
+          "rg": "string"
+        }
+      ],
+      "residence_owner_is_policy_holder": true,
+      "robbery_protective_system": "string",
+      "seating_capacity": 0,
+      "tax_exemption_reasoning_code": "string",
+      "tax_exemption_start_date": "string",
+      "tax_exemption_type": "string",
+      "total_amount": 0,
+      "tumbled_home_owners": true,
+      "usage_code": 0,
+      "vehicle_type": "string"
+    }
+  ],
+  "lifetime_end": "string",
+  "lifetime_start": "string",
+  "metadata": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "plan": {
+    "active": true,
+    "broker_id": "string",
+    "coverages": [
+      {
+        "coverage_option_id": "string",
+        "deductible_amount": 0,
+        "id": "string",
+        "insured_amount": 0,
+        "insured_amount_limit": 0,
+        "insured_days": 0,
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "premium_amount": 0,
+        "value": "string"
+      }
+    ],
+    "error": "string",
+    "id": "string",
+    "installments": [
+      {
+        "amount": 0,
+        "bundle_id": "string",
+        "first_payment_amount": 0,
+        "id": "string",
+        "installment_quantity": 0,
+        "interest_amount": 0,
+        "interest_percent": 0,
+        "is_chosen": true,
+        "payment_methods": [
+          "string"
+        ],
+        "recurrence": {
+          "expiration_day": 0,
+          "interest_amount": 0,
+          "interest_percent": 0,
+          "period_days": 0,
+          "quantity": 0
+        },
+        "taxes": [
+          {}
+        ],
+        "total_amount": 0
+      }
+    ],
+    "insurer_id": "string",
+    "lifetime_days": 0,
+    "metadata": {
+      "property1": "string",
+      "property2": "string"
+    },
+    "name": "string",
+    "product_id": "string"
+  },
+  "plan_id": "string",
+  "policy_holder": {
+    "address": {
+      "city_name": "string",
+      "complement": "string",
+      "district_name": "string",
+      "number": "string",
+      "state_code": "string",
+      "street_name": "string",
+      "zip_code": "string"
+    },
+    "bank_account": {
+      "account": "string",
+      "account_digit": "string",
+      "agency": "string",
+      "bank_code": "string"
+    },
+    "birth_date": "string",
+    "cnae": "string",
+    "cnpj": "string",
+    "contact": {
+      "email": "string",
+      "mobile_phone": "string",
+      "phone": "string"
+    },
+    "corporate_name": "string",
+    "cpf": "string",
+    "fantasy_name": "string",
+    "first_name": "string",
+    "gender": "string",
+    "income_monthly": 0,
+    "income_yearly": 0,
+    "is_foreign": true,
+    "is_politically_exposed": true,
+    "last_name": "string",
+    "marital_status": "string",
+    "metadata": {
+      "property1": "string",
+      "property2": "string"
+    },
+    "occupation_code": "string",
+    "occupation_name": "string",
+    "passport": "string",
+    "rg": "string"
+  },
+  "pro_labor_document": "string",
+  "pro_labor_percent": 0,
+  "product_id": "string",
+  "quote_request": {
+    "assists": [
+      {
+        "description": "string",
+        "id": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "name": "string",
+        "options": [
+          {}
+        ]
+      }
+    ],
+    "broker_channel_id": "string",
+    "broker_id": "string",
+    "broker_product_id": "string",
+    "bundles": [
+      {
+        "assists": [
+          {}
+        ],
+        "broker_id": "string",
+        "coverages": [
+          {}
+        ],
+        "description": "string",
+        "error": "string",
+        "id": "string",
+        "name": "string",
+        "optionals": [
+          {}
+        ],
+        "product_id": "string"
+      }
+    ],
+    "coverages": [
+      {
+        "coverages": [
+          {}
+        ],
+        "default": "string",
+        "description": "string",
+        "id": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "multiple": true,
+        "name": "string",
+        "options": [
+          {}
+        ],
+        "range": [
+          0
+        ],
+        "required": true
+      }
+    ],
+    "currency": "string",
+    "date": "string",
+    "error": "string",
+    "id": "string",
+    "lead_id": "string",
+    "metadata": {
+      "property1": "string",
+      "property2": "string"
+    },
+    "modalities": [
+      0
+    ],
+    "optionals": [
+      {
+        "description": "string",
+        "id": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "name": "string"
+      }
+    ],
+    "plans": [
+      {
+        "active": true,
+        "broker_id": "string",
+        "coverages": [
+          {}
+        ],
+        "error": "string",
+        "id": "string",
+        "installments": [
+          {}
+        ],
+        "insurer_id": "string",
+        "lifetime_days": 0,
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "name": "string",
+        "product_id": "string"
+      }
+    ],
+    "product_id": "string",
+    "questions": [
+      {
+        "default": "string",
+        "description": "string",
+        "id": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "multiple": true,
+        "name": "string",
+        "options": [
+          {}
+        ],
+        "questions": [
+          {}
+        ],
+        "range": [
+          0
+        ],
+        "relevance": "string",
+        "required": true
+      }
+    ]
+  },
+  "quote_request_id": "string",
+  "renewal": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "status": 0,
+  "valid_until": "string",
+  "warnings": [
+    {
+      "code": 0,
+      "message": "string"
+    }
+  ]
+}
+```
+
+<h3 id="postquote-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[QuoteComplete](#schemaquotecomplete)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+OAuth2
+</aside>
+
+## PostQuoteRequest
+
+<a id="opIdPostQuoteRequest"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.onli.com.br/v1/quotes/request \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer xxx' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+const inputBody = '{
+  "broker_channel_id": "string",
+  "broker_id": "string",
+  "broker_product_id": "string",
+  "lead_id": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Authorization':'Bearer xxx',
+  'Accept':'application/json'
+};
+
+fetch('https://api.onli.com.br/v1/quotes/request',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Authorization": []string{"Bearer xxx"},
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.onli.com.br/v1/quotes/request", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /quotes/request`
+
+> Body parameter
+
+```json
+{
+  "broker_channel_id": "string",
+  "broker_id": "string",
+  "broker_product_id": "string",
+  "lead_id": "string"
+}
+```
+
+<h3 id="the-quote-request-returns-important-data-before-quotes,-you-need-to-perform-this-request-before-the-quote-itself.-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[PostQuoteReqRequest](#schemapostquotereqrequest)|false|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "assists": [
+    {
+      "description": "string",
+      "id": "string",
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "name": "string",
+      "options": [
+        {
+          "description": "string",
+          "id": "string",
+          "metadata": {},
+          "name": "string"
+        }
+      ]
+    }
+  ],
+  "broker_channel_id": "string",
+  "broker_id": "string",
+  "broker_product_id": "string",
+  "bundles": [
+    {
+      "assists": [
+        {
+          "assistance_option_id": "string",
+          "id": "string"
+        }
+      ],
+      "broker_id": "string",
+      "coverages": [
+        {
+          "coverage_option_id": "string",
+          "deductible_amount": 0,
+          "id": "string",
+          "insured_amount": 0,
+          "metadata": {},
+          "value": "string"
+        }
+      ],
+      "description": "string",
+      "error": "string",
+      "id": "string",
+      "name": "string",
+      "optionals": [
+        {
+          "id": "string"
+        }
+      ],
+      "product_id": "string"
+    }
+  ],
+  "coverages": [
+    {
+      "coverages": [
+        {}
+      ],
+      "default": "string",
+      "description": "string",
+      "id": "string",
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "multiple": true,
+      "name": "string",
+      "options": [
+        {
+          "coverages": [],
+          "description": "string",
+          "id": "string",
+          "metadata": {},
+          "name": "string",
+          "options": []
+        }
+      ],
+      "range": [
+        0
+      ],
+      "required": true
+    }
+  ],
+  "currency": "string",
+  "date": "string",
+  "error": "string",
+  "id": "string",
+  "lead_id": "string",
+  "metadata": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "modalities": [
+    0
+  ],
+  "optionals": [
+    {
+      "description": "string",
+      "id": "string",
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "name": "string"
+    }
+  ],
+  "plans": [
+    {
+      "active": true,
+      "broker_id": "string",
+      "coverages": [
+        {
+          "coverage_option_id": "string",
+          "deductible_amount": 0,
+          "id": "string",
+          "insured_amount": 0,
+          "insured_amount_limit": 0,
+          "insured_days": 0,
+          "metadata": {},
+          "premium_amount": 0,
+          "value": "string"
+        }
+      ],
+      "error": "string",
+      "id": "string",
+      "installments": [
+        {
+          "amount": 0,
+          "bundle_id": "string",
+          "first_payment_amount": 0,
+          "id": "string",
+          "installment_quantity": 0,
+          "interest_amount": 0,
+          "interest_percent": 0,
+          "is_chosen": true,
+          "payment_methods": [],
+          "recurrence": {},
+          "taxes": [],
+          "total_amount": 0
+        }
+      ],
+      "insurer_id": "string",
+      "lifetime_days": 0,
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "name": "string",
+      "product_id": "string"
+    }
+  ],
+  "product_id": "string",
+  "questions": [
+    {
+      "default": "string",
+      "description": "string",
+      "id": "string",
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "multiple": true,
+      "name": "string",
+      "options": [
+        {
+          "name": "string",
+          "value": "string"
+        }
+      ],
+      "questions": [
+        {}
+      ],
+      "range": [
+        0
+      ],
+      "relevance": "string",
+      "required": true
+    }
+  ]
+}
+```
+
+<h3 id="the-quote-request-returns-important-data-before-quotes,-you-need-to-perform-this-request-before-the-quote-itself.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[QuoteRequestReqComplete](#schemaquoterequestreqcomplete)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+OAuth2
+</aside>
+
+## ListSale
+
+<a id="opIdListSale"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.onli.com.br/v1/sales \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://api.onli.com.br/v1/sales',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.onli.com.br/v1/sales", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /sales`
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "error": "string",
+  "items": [
+    {
+      "broker": {
+        "address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "cnpj": "string",
+        "contact": {
+          "email": "string",
+          "mobile_phone": "string",
+          "phone": "string"
+        },
+        "customer_id": "string",
+        "error": "string",
+        "id": "string",
+        "logo_url": "string",
+        "name": "string",
+        "susep": "string"
+      },
+      "broker_branch_id": "string",
+      "broker_channel_id": "string",
+      "broker_id": "string",
+      "broker_product": {
+        "agency_percent": 0,
+        "broker_id": "string",
+        "commercial_image": "string",
+        "commercial_text": "string",
+        "commission_percent": 0,
+        "description": "string",
+        "error": "string",
+        "id": "string",
+        "is_restricted": true,
+        "name": "string",
+        "participation_rules": "string",
+        "pro_labor_percent": 0,
+        "product": {
+          "assists": [],
+          "branch": "string",
+          "coverages": [],
+          "currency": "string",
+          "description": "string",
+          "error": "string",
+          "id": "string",
+          "insurer": {},
+          "insurer_id": "string",
+          "is_dynamic": true,
+          "judicial_appeals": [],
+          "metadata": {},
+          "modalities": [],
+          "name": "string",
+          "optionals": [],
+          "questions": [],
+          "schema": {},
+          "susep": "string",
+          "type": 0
+        },
+        "product_id": "string"
+      },
+      "broker_product_id": "string",
+      "bundle_id": "string",
+      "business_id": "string",
+      "chosen_installment": {
+        "amount": 0,
+        "bundle_id": "string",
+        "first_payment_amount": 0,
+        "id": "string",
+        "installment_quantity": 0,
+        "interest_amount": 0,
+        "interest_percent": 0,
+        "payment_methods": [
+          "string"
+        ],
+        "recurrence": {
+          "expiration_day": 0,
+          "interest_amount": 0,
+          "interest_percent": 0,
+          "period_days": 0,
+          "quantity": 0
+        },
+        "taxes": [
+          {}
+        ],
+        "total_amount": 0
+      },
+      "complement": {
+        "item": {
+          "adaptation_code": "string",
+          "address": {},
+          "assists": [],
+          "beneficiaries": [],
+          "beneficiaries_are_divided_by_law": true,
+          "bundle_id": "string",
+          "bundles": [],
+          "business_partners": [],
+          "business_partners_average_age": 0,
+          "business_partners_capital": 0,
+          "business_partners_quantity": 0,
+          "chassis": "string",
+          "claimant": {},
+          "construction_type": "string",
+          "coverage_amount": 0,
+          "coverages": [],
+          "dealer_exit_date_time": "string",
+          "drivers": [],
+          "employees": [],
+          "employees_average_age": 0,
+          "employees_capital": 0,
+          "employees_quantity": 0,
+          "expiration_day": 0,
+          "fipe_code": "string",
+          "fipe_percentage": 0,
+          "fuel_type": "string",
+          "has_lo_jack": true,
+          "has_tax_exemption": true,
+          "id": 0,
+          "imei": "string",
+          "installment_amount": 0,
+          "installment_quantity": 0,
+          "installments": [],
+          "insure_business_partners": true,
+          "is_0km": true,
+          "is_dealer_owner_vehicle": true,
+          "judicial_appeal": 0,
+          "judicial_appeal_percentage": 0,
+          "lat": 0,
+          "lawsuit": {},
+          "lng": 0,
+          "lo_jack_code": "string",
+          "manufacture_year": 0,
+          "manufacturer_name": "string",
+          "metadata": {},
+          "modality_type": 0,
+          "model": "string",
+          "model_name": "string",
+          "model_variant": "string",
+          "model_year": 0,
+          "motorcycle_usage": true,
+          "occupancy_type": "string",
+          "occupation_code": "string",
+          "optionals": [],
+          "phone_number": "string",
+          "plate": "string",
+          "property_type": "string",
+          "questions": [],
+          "relatives": [],
+          "residence_owner_is_policy_holder": true,
+          "robbery_protective_system": "string",
+          "seating_capacity": 0,
+          "tax_exemption_reasoning_code": "string",
+          "tax_exemption_start_date": "string",
+          "tax_exemption_type": "string",
+          "total_amount": 0,
+          "tumbled_home_owners": true,
+          "usage_code": 0,
+          "vehicle_type": "string"
+        },
+        "policy_holder": {
+          "address": {},
+          "bank_account": {},
+          "birth_date": "string",
+          "cnae": "string",
+          "cnpj": "string",
+          "contact": {},
+          "corporate_name": "string",
+          "cpf": "string",
+          "fantasy_name": "string",
+          "first_name": "string",
+          "gender": "string",
+          "income_monthly": 0,
+          "income_yearly": 0,
+          "is_foreign": true,
+          "is_politically_exposed": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "metadata": {},
+          "occupation_code": "string",
+          "occupation_name": "string",
+          "passport": "string",
+          "rg": "string"
+        }
+      },
+      "credential": {
+        "broker": {
+          "address": {},
+          "cnpj": "string",
+          "contact": {},
+          "customer_id": "string",
+          "error": "string",
+          "id": "string",
+          "logo_url": "string",
+          "name": "string",
+          "susep": "string"
+        },
+        "broker_id": "string",
+        "customer_branch_id": "string",
+        "customer_id": "string",
+        "error": "string",
+        "id": "string",
+        "items": [
+          {}
+        ],
+        "provider": "string",
+        "provider_customer_branch_id": "string",
+        "provider_customer_id": "string",
+        "status": 0,
+        "type": 0
+      },
+      "credential_id": "string",
+      "date": "string",
+      "error": "string",
+      "id": "string",
+      "installment_id": "string",
+      "insurer_branch_id": "string",
+      "insurer_id": "string",
+      "invoice": {
+        "address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "amount": 0,
+        "amount_refund": 0,
+        "bank_account": {
+          "account": "string",
+          "account_digit": "string",
+          "agency": "string",
+          "bank_code": "string"
+        },
+        "billet": {
+          "barcode": "string",
+          "digitable_line": "string",
+          "document_url": "string",
+          "due_date": "string",
+          "number": "string"
+        },
+        "canceled_at": "string",
+        "card_token": {
+          "id": "string",
+          "token": "string"
+        },
+        "credential": {
+          "items": []
+        },
+        "currency": "string",
+        "customer_id": "string",
+        "date": "string",
+        "id": "string",
+        "installments": 0,
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "payer_document": "string",
+        "payer_email": "string",
+        "payer_mobile_phone": "string",
+        "payer_name": "string",
+        "payer_phone": "string",
+        "payment_credential_id": "string",
+        "payment_method": "string",
+        "payment_tries": [
+          {}
+        ],
+        "pix": {
+          "key": "string",
+          "url": "string"
+        },
+        "recurrence": {
+          "expiration_day": 0,
+          "id": "string",
+          "interest_amount": 0,
+          "interest_percent": 0,
+          "period_days": 0,
+          "quantity": 0,
+          "recurrence_disabled": true
+        },
+        "sequence_number": 0,
+        "soft_descriptor": "string",
+        "status": 0
+      },
+      "location": {
+        "lat": 0,
+        "lon": 0
+      },
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "payment_method": "string",
+      "plan": {
+        "active": true,
+        "broker_id": "string",
+        "coverages": [
+          {}
+        ],
+        "error": "string",
+        "id": "string",
+        "installments": [
+          {}
+        ],
+        "insurer_id": "string",
+        "lifetime_days": 0,
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "name": "string",
+        "product_id": "string"
+      },
+      "plan_id": "string",
+      "product_id": "string",
+      "quote_id": "string",
+      "sale_request": {
+        "broker_channel_id": "string",
+        "broker_id": "string",
+        "broker_product_id": "string",
+        "credential": {
+          "broker": {},
+          "broker_id": "string",
+          "customer_branch_id": "string",
+          "customer_id": "string",
+          "error": "string",
+          "id": "string",
+          "items": [],
+          "provider": "string",
+          "provider_customer_branch_id": "string",
+          "provider_customer_id": "string",
+          "status": 0,
+          "type": 0
+        },
+        "date": "string",
+        "error": "string",
+        "id": "string",
+        "product_id": "string",
+        "quote": {
+          "agency_percent": 0,
+          "broker": {},
+          "broker_branch_id": "string",
+          "broker_channel": {},
+          "broker_channel_id": "string",
+          "broker_id": "string",
+          "broker_product": {},
+          "broker_product_id": "string",
+          "bundles": [],
+          "business_id": "string",
+          "commission_percent": 0,
+          "credential": {},
+          "currency": "string",
+          "date": "string",
+          "draft_url": "string",
+          "error": "string",
+          "id": "string",
+          "insurer_branch_id": "string",
+          "insurer_id": "string",
+          "items": [],
+          "lifetime_end": "string",
+          "lifetime_start": "string",
+          "metadata": {},
+          "plan": {},
+          "plan_id": "string",
+          "policy_holder": {},
+          "pro_labor_document": "string",
+          "pro_labor_percent": 0,
+          "product_id": "string",
+          "quote_request": {},
+          "quote_request_id": "string",
+          "renewal": {},
+          "status": 0,
+          "valid_until": "string",
+          "warnings": []
+        },
+        "quote_id": "string"
+      },
+      "sale_request_id": "string",
+      "status": 0,
+      "warnings": [
+        {
+          "code": 0,
+          "message": "string"
+        }
+      ]
+    }
+  ],
+  "total": 0
+}
+```
+
+<h3 id="listsale-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[ListSale](#schemalistsale)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+OAuth2
+</aside>
+
+## PostSale
+
+<a id="opIdPostSale"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.onli.com.br/v1/sales \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer xxx' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+const inputBody = '{
+  "broker_id": "string",
+  "complement": {
+    "item": {
+      "adaptation_code": "string",
+      "address": {
+        "city_name": "string",
+        "complement": "string",
+        "district_name": "string",
+        "number": "string",
+        "state_code": "string",
+        "street_name": "string",
+        "zip_code": "string"
+      },
+      "assists": [
+        {
+          "assistance_option_id": "string",
+          "id": "string",
+          "premium_amount": 0
+        }
+      ],
+      "beneficiaries": [
+        {
+          "birth_date": "string",
+          "cpf": "string",
+          "first_name": "string",
+          "last_name": "string",
+          "participation": 0,
+          "questions": [],
+          "relational_type": "string",
+          "rg": "string"
+        }
+      ],
+      "beneficiaries_are_divided_by_law": true,
+      "bundle_id": "string",
+      "bundles": [
+        {
+          "assists": [],
+          "coverages": [],
+          "id": "string",
+          "optionals": []
+        }
+      ],
+      "business_partners": [
+        {
+          "address": {},
+          "bank_account": {},
+          "birth_date": "string",
+          "cnae": "string",
+          "cnpj": "string",
+          "contact": {},
+          "corporate_name": "string",
+          "cpf": "string",
+          "fantasy_name": "string",
+          "first_name": "string",
+          "gender": "string",
+          "income_monthly": 0,
+          "income_yearly": 0,
+          "is_foreign": true,
+          "is_politically_exposed": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "metadata": {},
+          "occupation_code": "string",
+          "occupation_name": "string",
+          "passport": "string",
+          "rg": "string"
+        }
+      ],
+      "business_partners_average_age": 0,
+      "business_partners_capital": 0,
+      "business_partners_quantity": 0,
+      "chassis": "string",
+      "claimant": {
+        "address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "bank_account": {
+          "account": "string",
+          "account_digit": "string",
+          "agency": "string",
+          "bank_code": "string"
+        },
+        "birth_date": "string",
+        "cnae": "string",
+        "cnpj": "string",
+        "contact": {
+          "email": "string",
+          "mobile_phone": "string",
+          "phone": "string"
+        },
+        "corporate_name": "string",
+        "cpf": "string",
+        "fantasy_name": "string",
+        "first_name": "string",
+        "gender": "string",
+        "income_monthly": 0,
+        "income_yearly": 0,
+        "is_foreign": true,
+        "is_politically_exposed": true,
+        "last_name": "string",
+        "marital_status": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "occupation_code": "string",
+        "occupation_name": "string",
+        "passport": "string",
+        "rg": "string"
+      },
+      "construction_type": "string",
+      "coverage_amount": 0,
+      "coverages": [
+        {
+          "coverage_option_id": "string",
+          "deductible_amount": 0,
+          "id": "string",
+          "insured_amount": 0,
+          "insured_amount_limit": 0,
+          "insured_days": 0,
+          "metadata": {},
+          "premium_amount": 0,
+          "value": "string"
+        }
+      ],
+      "dealer_exit_date_time": "string",
+      "drivers": [
+        {
+          "birth_date": "string",
+          "cpf": "string",
+          "days_per_week": 0,
+          "driver_type": "string",
+          "first_name": "string",
+          "gender": "string",
+          "is_policy_holder": true,
+          "is_reference_driver": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "questions": [],
+          "relational_type": "string"
+        }
+      ],
+      "employees": [
+        {
+          "address": {},
+          "bank_account": {},
+          "birth_date": "string",
+          "cnae": "string",
+          "cnpj": "string",
+          "contact": {},
+          "corporate_name": "string",
+          "cpf": "string",
+          "fantasy_name": "string",
+          "first_name": "string",
+          "gender": "string",
+          "income_monthly": 0,
+          "income_yearly": 0,
+          "is_foreign": true,
+          "is_politically_exposed": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "metadata": {},
+          "occupation_code": "string",
+          "occupation_name": "string",
+          "passport": "string",
+          "rg": "string"
+        }
+      ],
+      "employees_average_age": 0,
+      "employees_capital": 0,
+      "employees_quantity": 0,
+      "expiration_day": 0,
+      "fipe_code": "string",
+      "fipe_percentage": 0,
+      "fuel_type": "string",
+      "has_lo_jack": true,
+      "has_tax_exemption": true,
+      "id": 0,
+      "imei": "string",
+      "installment_amount": 0,
+      "installment_quantity": 0,
+      "installments": [
+        {
+          "amount": 0,
+          "bundle_id": "string",
+          "first_payment_amount": 0,
+          "id": "string",
+          "installment_quantity": 0,
+          "interest_amount": 0,
+          "interest_percent": 0,
+          "is_chosen": true,
+          "payment_methods": [],
+          "recurrence": {},
+          "taxes": [],
+          "total_amount": 0
+        }
+      ],
+      "insure_business_partners": true,
+      "is_0km": true,
+      "is_dealer_owner_vehicle": true,
+      "judicial_appeal": 0,
+      "judicial_appeal_percentage": 0,
+      "lat": 0,
+      "lawsuit": {
+        "court_name": "string",
+        "process_content": "string",
+        "process_number": "string",
+        "tribunal_city_name": "string",
+        "tribunal_name": "string",
+        "tribunal_state_code": "string"
+      },
+      "lng": 0,
+      "lo_jack_code": "string",
+      "manufacture_year": 0,
+      "manufacturer_name": "string",
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "modality_type": 0,
+      "model": "string",
+      "model_name": "string",
+      "model_variant": "string",
+      "model_year": 0,
+      "motorcycle_usage": true,
+      "occupancy_type": "string",
+      "occupation_code": "string",
+      "optionals": [
+        {
+          "id": "string",
+          "premium_amount": 0
+        }
+      ],
+      "phone_number": "string",
+      "plate": "string",
+      "property_type": "string",
+      "questions": [
+        {
+          "id": "string",
+          "value": "string"
+        }
+      ],
+      "relatives": [
+        {
+          "birth_date": "string",
+          "cpf": "string",
+          "first_name": "string",
+          "last_name": "string",
+          "relational_type": "string",
+          "rg": "string"
+        }
+      ],
+      "residence_owner_is_policy_holder": true,
+      "robbery_protective_system": "string",
+      "seating_capacity": 0,
+      "tax_exemption_reasoning_code": "string",
+      "tax_exemption_start_date": "string",
+      "tax_exemption_type": "string",
+      "total_amount": 0,
+      "tumbled_home_owners": true,
+      "usage_code": 0,
+      "vehicle_type": "string"
+    },
+    "policy_holder": {
+      "address": {
+        "city_name": "string",
+        "complement": "string",
+        "district_name": "string",
+        "number": "string",
+        "state_code": "string",
+        "street_name": "string",
+        "zip_code": "string"
+      },
+      "bank_account": {
+        "account": "string",
+        "account_digit": "string",
+        "agency": "string",
+        "bank_code": "string"
+      },
+      "birth_date": "string",
+      "cnae": "string",
+      "cnpj": "string",
+      "contact": {
+        "email": "string",
+        "mobile_phone": "string",
+        "phone": "string"
+      },
+      "corporate_name": "string",
+      "cpf": "string",
+      "fantasy_name": "string",
+      "first_name": "string",
+      "gender": "string",
+      "income_monthly": 0,
+      "income_yearly": 0,
+      "is_foreign": true,
+      "is_politically_exposed": true,
+      "last_name": "string",
+      "marital_status": "string",
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "occupation_code": "string",
+      "occupation_name": "string",
+      "passport": "string",
+      "rg": "string"
+    }
+  },
+  "installment_id": "string",
+  "payment_method": "string",
+  "sale_request_id": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Authorization':'Bearer xxx',
+  'Accept':'application/json'
+};
+
+fetch('https://api.onli.com.br/v1/sales',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Authorization": []string{"Bearer xxx"},
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.onli.com.br/v1/sales", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /sales`
+
+> Body parameter
+
+```json
+{
+  "broker_id": "string",
+  "complement": {
+    "item": {
+      "adaptation_code": "string",
+      "address": {
+        "city_name": "string",
+        "complement": "string",
+        "district_name": "string",
+        "number": "string",
+        "state_code": "string",
+        "street_name": "string",
+        "zip_code": "string"
+      },
+      "assists": [
+        {
+          "assistance_option_id": "string",
+          "id": "string",
+          "premium_amount": 0
+        }
+      ],
+      "beneficiaries": [
+        {
+          "birth_date": "string",
+          "cpf": "string",
+          "first_name": "string",
+          "last_name": "string",
+          "participation": 0,
+          "questions": [],
+          "relational_type": "string",
+          "rg": "string"
+        }
+      ],
+      "beneficiaries_are_divided_by_law": true,
+      "bundle_id": "string",
+      "bundles": [
+        {
+          "assists": [],
+          "coverages": [],
+          "id": "string",
+          "optionals": []
+        }
+      ],
+      "business_partners": [
+        {
+          "address": {},
+          "bank_account": {},
+          "birth_date": "string",
+          "cnae": "string",
+          "cnpj": "string",
+          "contact": {},
+          "corporate_name": "string",
+          "cpf": "string",
+          "fantasy_name": "string",
+          "first_name": "string",
+          "gender": "string",
+          "income_monthly": 0,
+          "income_yearly": 0,
+          "is_foreign": true,
+          "is_politically_exposed": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "metadata": {},
+          "occupation_code": "string",
+          "occupation_name": "string",
+          "passport": "string",
+          "rg": "string"
+        }
+      ],
+      "business_partners_average_age": 0,
+      "business_partners_capital": 0,
+      "business_partners_quantity": 0,
+      "chassis": "string",
+      "claimant": {
+        "address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "bank_account": {
+          "account": "string",
+          "account_digit": "string",
+          "agency": "string",
+          "bank_code": "string"
+        },
+        "birth_date": "string",
+        "cnae": "string",
+        "cnpj": "string",
+        "contact": {
+          "email": "string",
+          "mobile_phone": "string",
+          "phone": "string"
+        },
+        "corporate_name": "string",
+        "cpf": "string",
+        "fantasy_name": "string",
+        "first_name": "string",
+        "gender": "string",
+        "income_monthly": 0,
+        "income_yearly": 0,
+        "is_foreign": true,
+        "is_politically_exposed": true,
+        "last_name": "string",
+        "marital_status": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "occupation_code": "string",
+        "occupation_name": "string",
+        "passport": "string",
+        "rg": "string"
+      },
+      "construction_type": "string",
+      "coverage_amount": 0,
+      "coverages": [
+        {
+          "coverage_option_id": "string",
+          "deductible_amount": 0,
+          "id": "string",
+          "insured_amount": 0,
+          "insured_amount_limit": 0,
+          "insured_days": 0,
+          "metadata": {},
+          "premium_amount": 0,
+          "value": "string"
+        }
+      ],
+      "dealer_exit_date_time": "string",
+      "drivers": [
+        {
+          "birth_date": "string",
+          "cpf": "string",
+          "days_per_week": 0,
+          "driver_type": "string",
+          "first_name": "string",
+          "gender": "string",
+          "is_policy_holder": true,
+          "is_reference_driver": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "questions": [],
+          "relational_type": "string"
+        }
+      ],
+      "employees": [
+        {
+          "address": {},
+          "bank_account": {},
+          "birth_date": "string",
+          "cnae": "string",
+          "cnpj": "string",
+          "contact": {},
+          "corporate_name": "string",
+          "cpf": "string",
+          "fantasy_name": "string",
+          "first_name": "string",
+          "gender": "string",
+          "income_monthly": 0,
+          "income_yearly": 0,
+          "is_foreign": true,
+          "is_politically_exposed": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "metadata": {},
+          "occupation_code": "string",
+          "occupation_name": "string",
+          "passport": "string",
+          "rg": "string"
+        }
+      ],
+      "employees_average_age": 0,
+      "employees_capital": 0,
+      "employees_quantity": 0,
+      "expiration_day": 0,
+      "fipe_code": "string",
+      "fipe_percentage": 0,
+      "fuel_type": "string",
+      "has_lo_jack": true,
+      "has_tax_exemption": true,
+      "id": 0,
+      "imei": "string",
+      "installment_amount": 0,
+      "installment_quantity": 0,
+      "installments": [
+        {
+          "amount": 0,
+          "bundle_id": "string",
+          "first_payment_amount": 0,
+          "id": "string",
+          "installment_quantity": 0,
+          "interest_amount": 0,
+          "interest_percent": 0,
+          "is_chosen": true,
+          "payment_methods": [],
+          "recurrence": {},
+          "taxes": [],
+          "total_amount": 0
+        }
+      ],
+      "insure_business_partners": true,
+      "is_0km": true,
+      "is_dealer_owner_vehicle": true,
+      "judicial_appeal": 0,
+      "judicial_appeal_percentage": 0,
+      "lat": 0,
+      "lawsuit": {
+        "court_name": "string",
+        "process_content": "string",
+        "process_number": "string",
+        "tribunal_city_name": "string",
+        "tribunal_name": "string",
+        "tribunal_state_code": "string"
+      },
+      "lng": 0,
+      "lo_jack_code": "string",
+      "manufacture_year": 0,
+      "manufacturer_name": "string",
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "modality_type": 0,
+      "model": "string",
+      "model_name": "string",
+      "model_variant": "string",
+      "model_year": 0,
+      "motorcycle_usage": true,
+      "occupancy_type": "string",
+      "occupation_code": "string",
+      "optionals": [
+        {
+          "id": "string",
+          "premium_amount": 0
+        }
+      ],
+      "phone_number": "string",
+      "plate": "string",
+      "property_type": "string",
+      "questions": [
+        {
+          "id": "string",
+          "value": "string"
+        }
+      ],
+      "relatives": [
+        {
+          "birth_date": "string",
+          "cpf": "string",
+          "first_name": "string",
+          "last_name": "string",
+          "relational_type": "string",
+          "rg": "string"
+        }
+      ],
+      "residence_owner_is_policy_holder": true,
+      "robbery_protective_system": "string",
+      "seating_capacity": 0,
+      "tax_exemption_reasoning_code": "string",
+      "tax_exemption_start_date": "string",
+      "tax_exemption_type": "string",
+      "total_amount": 0,
+      "tumbled_home_owners": true,
+      "usage_code": 0,
+      "vehicle_type": "string"
+    },
+    "policy_holder": {
+      "address": {
+        "city_name": "string",
+        "complement": "string",
+        "district_name": "string",
+        "number": "string",
+        "state_code": "string",
+        "street_name": "string",
+        "zip_code": "string"
+      },
+      "bank_account": {
+        "account": "string",
+        "account_digit": "string",
+        "agency": "string",
+        "bank_code": "string"
+      },
+      "birth_date": "string",
+      "cnae": "string",
+      "cnpj": "string",
+      "contact": {
+        "email": "string",
+        "mobile_phone": "string",
+        "phone": "string"
+      },
+      "corporate_name": "string",
+      "cpf": "string",
+      "fantasy_name": "string",
+      "first_name": "string",
+      "gender": "string",
+      "income_monthly": 0,
+      "income_yearly": 0,
+      "is_foreign": true,
+      "is_politically_exposed": true,
+      "last_name": "string",
+      "marital_status": "string",
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "occupation_code": "string",
+      "occupation_name": "string",
+      "passport": "string",
+      "rg": "string"
+    }
+  },
+  "installment_id": "string",
+  "payment_method": "string",
+  "sale_request_id": "string"
+}
+```
+
+<h3 id="postsale-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[PostSale](#schemapostsale)|false|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "broker": {
+    "address": {
+      "city_name": "string",
+      "complement": "string",
+      "district_name": "string",
+      "number": "string",
+      "state_code": "string",
+      "street_name": "string",
+      "zip_code": "string"
+    },
+    "cnpj": "string",
+    "contact": {
+      "email": "string",
+      "mobile_phone": "string",
+      "phone": "string"
+    },
+    "customer_id": "string",
+    "error": "string",
+    "id": "string",
+    "logo_url": "string",
+    "name": "string",
+    "susep": "string"
+  },
+  "broker_branch_id": "string",
+  "broker_channel_id": "string",
+  "broker_id": "string",
+  "broker_product": {
+    "agency_percent": 0,
+    "broker_id": "string",
+    "commercial_image": "string",
+    "commercial_text": "string",
+    "commission_percent": 0,
+    "description": "string",
+    "error": "string",
+    "id": "string",
+    "is_restricted": true,
+    "name": "string",
+    "participation_rules": "string",
+    "pro_labor_percent": 0,
+    "product": {
+      "assists": [
+        {
+          "description": "string",
+          "id": "string",
+          "metadata": {},
+          "name": "string",
+          "options": []
+        }
+      ],
+      "branch": "string",
+      "coverages": [
+        {
+          "coverages": [],
+          "default": "string",
+          "description": "string",
+          "id": "string",
+          "metadata": {},
+          "multiple": true,
+          "name": "string",
+          "options": [],
+          "range": [],
+          "required": true
+        }
+      ],
+      "currency": "string",
+      "description": "string",
+      "error": "string",
+      "id": "string",
+      "insurer": {
+        "address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "cnpj": "string",
+        "contact": {
+          "email": "string",
+          "mobile_phone": "string",
+          "phone": "string"
+        },
+        "credential_provider_key": "string",
+        "customer_id": "string",
+        "error": "string",
+        "id": "string",
+        "name": "string"
+      },
+      "insurer_id": "string",
+      "is_dynamic": true,
+      "judicial_appeals": [
+        0
+      ],
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "modalities": [
+        0
+      ],
+      "name": "string",
+      "optionals": [
+        {
+          "description": "string",
+          "id": "string",
+          "metadata": {},
+          "name": "string"
+        }
+      ],
+      "questions": [
+        {
+          "default": "string",
+          "description": "string",
+          "id": "string",
+          "metadata": {},
+          "multiple": true,
+          "name": "string",
+          "options": [],
+          "questions": [],
+          "range": [],
+          "relevance": "string",
+          "required": true
+        }
+      ],
+      "schema": {
+        "default": {
+          "agency_percent": 0,
+          "commission_percent": 0,
+          "pro_labor_percent": 0
+        },
+        "maximum": {
+          "agency_percent": 0,
+          "commission_percent": 0,
+          "pro_labor_percent": 0
+        },
+        "minimum": {
+          "agency_percent": 0,
+          "commission_percent": 0,
+          "pro_labor_percent": 0
+        }
+      },
+      "susep": "string",
+      "type": 0
+    },
+    "product_id": "string"
+  },
+  "broker_product_id": "string",
+  "bundle_id": "string",
+  "business_id": "string",
+  "chosen_installment": {
+    "amount": 0,
+    "bundle_id": "string",
+    "first_payment_amount": 0,
+    "id": "string",
+    "installment_quantity": 0,
+    "interest_amount": 0,
+    "interest_percent": 0,
+    "payment_methods": [
+      "string"
+    ],
+    "recurrence": {
+      "expiration_day": 0,
+      "interest_amount": 0,
+      "interest_percent": 0,
+      "period_days": 0,
+      "quantity": 0
+    },
+    "taxes": [
+      {
+        "amount": 0,
+        "name": "string",
+        "tax": 0
+      }
+    ],
+    "total_amount": 0
+  },
+  "complement": {
+    "item": {
+      "adaptation_code": "string",
+      "address": {
+        "city_name": "string",
+        "complement": "string",
+        "district_name": "string",
+        "number": "string",
+        "state_code": "string",
+        "street_name": "string",
+        "zip_code": "string"
+      },
+      "assists": [
+        {
+          "assistance_option_id": "string",
+          "id": "string",
+          "premium_amount": 0
+        }
+      ],
+      "beneficiaries": [
+        {
+          "birth_date": "string",
+          "cpf": "string",
+          "first_name": "string",
+          "last_name": "string",
+          "participation": 0,
+          "questions": [],
+          "relational_type": "string",
+          "rg": "string"
+        }
+      ],
+      "beneficiaries_are_divided_by_law": true,
+      "bundle_id": "string",
+      "bundles": [
+        {
+          "assists": [],
+          "coverages": [],
+          "id": "string",
+          "optionals": []
+        }
+      ],
+      "business_partners": [
+        {
+          "address": {},
+          "bank_account": {},
+          "birth_date": "string",
+          "cnae": "string",
+          "cnpj": "string",
+          "contact": {},
+          "corporate_name": "string",
+          "cpf": "string",
+          "fantasy_name": "string",
+          "first_name": "string",
+          "gender": "string",
+          "income_monthly": 0,
+          "income_yearly": 0,
+          "is_foreign": true,
+          "is_politically_exposed": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "metadata": {},
+          "occupation_code": "string",
+          "occupation_name": "string",
+          "passport": "string",
+          "rg": "string"
+        }
+      ],
+      "business_partners_average_age": 0,
+      "business_partners_capital": 0,
+      "business_partners_quantity": 0,
+      "chassis": "string",
+      "claimant": {
+        "address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "bank_account": {
+          "account": "string",
+          "account_digit": "string",
+          "agency": "string",
+          "bank_code": "string"
+        },
+        "birth_date": "string",
+        "cnae": "string",
+        "cnpj": "string",
+        "contact": {
+          "email": "string",
+          "mobile_phone": "string",
+          "phone": "string"
+        },
+        "corporate_name": "string",
+        "cpf": "string",
+        "fantasy_name": "string",
+        "first_name": "string",
+        "gender": "string",
+        "income_monthly": 0,
+        "income_yearly": 0,
+        "is_foreign": true,
+        "is_politically_exposed": true,
+        "last_name": "string",
+        "marital_status": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "occupation_code": "string",
+        "occupation_name": "string",
+        "passport": "string",
+        "rg": "string"
+      },
+      "construction_type": "string",
+      "coverage_amount": 0,
+      "coverages": [
+        {
+          "coverage_option_id": "string",
+          "deductible_amount": 0,
+          "id": "string",
+          "insured_amount": 0,
+          "insured_amount_limit": 0,
+          "insured_days": 0,
+          "metadata": {},
+          "premium_amount": 0,
+          "value": "string"
+        }
+      ],
+      "dealer_exit_date_time": "string",
+      "drivers": [
+        {
+          "birth_date": "string",
+          "cpf": "string",
+          "days_per_week": 0,
+          "driver_type": "string",
+          "first_name": "string",
+          "gender": "string",
+          "is_policy_holder": true,
+          "is_reference_driver": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "questions": [],
+          "relational_type": "string"
+        }
+      ],
+      "employees": [
+        {
+          "address": {},
+          "bank_account": {},
+          "birth_date": "string",
+          "cnae": "string",
+          "cnpj": "string",
+          "contact": {},
+          "corporate_name": "string",
+          "cpf": "string",
+          "fantasy_name": "string",
+          "first_name": "string",
+          "gender": "string",
+          "income_monthly": 0,
+          "income_yearly": 0,
+          "is_foreign": true,
+          "is_politically_exposed": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "metadata": {},
+          "occupation_code": "string",
+          "occupation_name": "string",
+          "passport": "string",
+          "rg": "string"
+        }
+      ],
+      "employees_average_age": 0,
+      "employees_capital": 0,
+      "employees_quantity": 0,
+      "expiration_day": 0,
+      "fipe_code": "string",
+      "fipe_percentage": 0,
+      "fuel_type": "string",
+      "has_lo_jack": true,
+      "has_tax_exemption": true,
+      "id": 0,
+      "imei": "string",
+      "installment_amount": 0,
+      "installment_quantity": 0,
+      "installments": [
+        {
+          "amount": 0,
+          "bundle_id": "string",
+          "first_payment_amount": 0,
+          "id": "string",
+          "installment_quantity": 0,
+          "interest_amount": 0,
+          "interest_percent": 0,
+          "is_chosen": true,
+          "payment_methods": [],
+          "recurrence": {},
+          "taxes": [],
+          "total_amount": 0
+        }
+      ],
+      "insure_business_partners": true,
+      "is_0km": true,
+      "is_dealer_owner_vehicle": true,
+      "judicial_appeal": 0,
+      "judicial_appeal_percentage": 0,
+      "lat": 0,
+      "lawsuit": {
+        "court_name": "string",
+        "process_content": "string",
+        "process_number": "string",
+        "tribunal_city_name": "string",
+        "tribunal_name": "string",
+        "tribunal_state_code": "string"
+      },
+      "lng": 0,
+      "lo_jack_code": "string",
+      "manufacture_year": 0,
+      "manufacturer_name": "string",
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "modality_type": 0,
+      "model": "string",
+      "model_name": "string",
+      "model_variant": "string",
+      "model_year": 0,
+      "motorcycle_usage": true,
+      "occupancy_type": "string",
+      "occupation_code": "string",
+      "optionals": [
+        {
+          "id": "string",
+          "premium_amount": 0
+        }
+      ],
+      "phone_number": "string",
+      "plate": "string",
+      "property_type": "string",
+      "questions": [
+        {
+          "id": "string",
+          "value": "string"
+        }
+      ],
+      "relatives": [
+        {
+          "birth_date": "string",
+          "cpf": "string",
+          "first_name": "string",
+          "last_name": "string",
+          "relational_type": "string",
+          "rg": "string"
+        }
+      ],
+      "residence_owner_is_policy_holder": true,
+      "robbery_protective_system": "string",
+      "seating_capacity": 0,
+      "tax_exemption_reasoning_code": "string",
+      "tax_exemption_start_date": "string",
+      "tax_exemption_type": "string",
+      "total_amount": 0,
+      "tumbled_home_owners": true,
+      "usage_code": 0,
+      "vehicle_type": "string"
+    },
+    "policy_holder": {
+      "address": {
+        "city_name": "string",
+        "complement": "string",
+        "district_name": "string",
+        "number": "string",
+        "state_code": "string",
+        "street_name": "string",
+        "zip_code": "string"
+      },
+      "bank_account": {
+        "account": "string",
+        "account_digit": "string",
+        "agency": "string",
+        "bank_code": "string"
+      },
+      "birth_date": "string",
+      "cnae": "string",
+      "cnpj": "string",
+      "contact": {
+        "email": "string",
+        "mobile_phone": "string",
+        "phone": "string"
+      },
+      "corporate_name": "string",
+      "cpf": "string",
+      "fantasy_name": "string",
+      "first_name": "string",
+      "gender": "string",
+      "income_monthly": 0,
+      "income_yearly": 0,
+      "is_foreign": true,
+      "is_politically_exposed": true,
+      "last_name": "string",
+      "marital_status": "string",
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "occupation_code": "string",
+      "occupation_name": "string",
+      "passport": "string",
+      "rg": "string"
+    }
+  },
+  "credential": {
+    "broker": {
+      "address": {
+        "city_name": "string",
+        "complement": "string",
+        "district_name": "string",
+        "number": "string",
+        "state_code": "string",
+        "street_name": "string",
+        "zip_code": "string"
+      },
+      "cnpj": "string",
+      "contact": {
+        "email": "string",
+        "mobile_phone": "string",
+        "phone": "string"
+      },
+      "customer_id": "string",
+      "error": "string",
+      "id": "string",
+      "logo_url": "string",
+      "name": "string",
+      "susep": "string"
+    },
+    "broker_id": "string",
+    "customer_branch_id": "string",
+    "customer_id": "string",
+    "error": "string",
+    "id": "string",
+    "items": [
+      {
+        "key": "string",
+        "value": "string"
+      }
+    ],
+    "provider": "string",
+    "provider_customer_branch_id": "string",
+    "provider_customer_id": "string",
+    "status": 0,
+    "type": 0
+  },
+  "credential_id": "string",
+  "date": "string",
+  "error": "string",
+  "id": "string",
+  "installment_id": "string",
+  "insurer_branch_id": "string",
+  "insurer_id": "string",
+  "invoice": {
+    "address": {
+      "city_name": "string",
+      "complement": "string",
+      "district_name": "string",
+      "number": "string",
+      "state_code": "string",
+      "street_name": "string",
+      "zip_code": "string"
+    },
+    "amount": 0,
+    "amount_refund": 0,
+    "bank_account": {
+      "account": "string",
+      "account_digit": "string",
+      "agency": "string",
+      "bank_code": "string"
+    },
+    "billet": {
+      "barcode": "string",
+      "digitable_line": "string",
+      "document_url": "string",
+      "due_date": "string",
+      "number": "string"
+    },
+    "canceled_at": "string",
+    "card_token": {
+      "id": "string",
+      "token": "string"
+    },
+    "credential": {
+      "items": [
+        {
+          "key": "string",
+          "value": "string"
+        }
+      ]
+    },
+    "currency": "string",
+    "customer_id": "string",
+    "date": "string",
+    "id": "string",
+    "installments": 0,
+    "metadata": {
+      "property1": "string",
+      "property2": "string"
+    },
+    "payer_document": "string",
+    "payer_email": "string",
+    "payer_mobile_phone": "string",
+    "payer_name": "string",
+    "payer_phone": "string",
+    "payment_credential_id": "string",
+    "payment_method": "string",
+    "payment_tries": [
+      {
+        "amount": 0,
+        "bank_account": {
+          "account": "string",
+          "account_digit": "string",
+          "agency": "string",
+          "bank_code": "string"
+        },
+        "canceled_at": "string",
+        "card_info": {
+          "brand": "string",
+          "expiration_date": "string",
+          "holder": "string",
+          "last_four": "string"
+        },
+        "currency": "string",
+        "customer_id": "string",
+        "customer_order_id": "string",
+        "date": "string",
+        "error": "string",
+        "id": "string",
+        "installments": 0,
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "payer_address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "payer_contact": {
+          "email": "string",
+          "mobile_phone": "string",
+          "phone": "string"
+        },
+        "payer_document": "string",
+        "payer_name": "string",
+        "soft_descriptor": "string",
+        "status": 0,
+        "type": "string"
+      }
+    ],
+    "pix": {
+      "key": "string",
+      "url": "string"
+    },
+    "recurrence": {
+      "expiration_day": 0,
+      "id": "string",
+      "interest_amount": 0,
+      "interest_percent": 0,
+      "period_days": 0,
+      "quantity": 0,
+      "recurrence_disabled": true
+    },
+    "sequence_number": 0,
+    "soft_descriptor": "string",
+    "status": 0
+  },
+  "location": {
+    "lat": 0,
+    "lon": 0
+  },
+  "metadata": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "payment_method": "string",
+  "plan": {
+    "active": true,
+    "broker_id": "string",
+    "coverages": [
+      {
+        "coverage_option_id": "string",
+        "deductible_amount": 0,
+        "id": "string",
+        "insured_amount": 0,
+        "insured_amount_limit": 0,
+        "insured_days": 0,
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "premium_amount": 0,
+        "value": "string"
+      }
+    ],
+    "error": "string",
+    "id": "string",
+    "installments": [
+      {
+        "amount": 0,
+        "bundle_id": "string",
+        "first_payment_amount": 0,
+        "id": "string",
+        "installment_quantity": 0,
+        "interest_amount": 0,
+        "interest_percent": 0,
+        "is_chosen": true,
+        "payment_methods": [
+          "string"
+        ],
+        "recurrence": {
+          "expiration_day": 0,
+          "interest_amount": 0,
+          "interest_percent": 0,
+          "period_days": 0,
+          "quantity": 0
+        },
+        "taxes": [
+          {}
+        ],
+        "total_amount": 0
+      }
+    ],
+    "insurer_id": "string",
+    "lifetime_days": 0,
+    "metadata": {
+      "property1": "string",
+      "property2": "string"
+    },
+    "name": "string",
+    "product_id": "string"
+  },
+  "plan_id": "string",
+  "product_id": "string",
+  "quote_id": "string",
+  "sale_request": {
+    "broker_channel_id": "string",
+    "broker_id": "string",
+    "broker_product_id": "string",
+    "credential": {
+      "broker": {
+        "address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "cnpj": "string",
+        "contact": {
+          "email": "string",
+          "mobile_phone": "string",
+          "phone": "string"
+        },
+        "customer_id": "string",
+        "error": "string",
+        "id": "string",
+        "logo_url": "string",
+        "name": "string",
+        "susep": "string"
+      },
+      "broker_id": "string",
+      "customer_branch_id": "string",
+      "customer_id": "string",
+      "error": "string",
+      "id": "string",
+      "items": [
+        {
+          "key": "string",
+          "value": "string"
+        }
+      ],
+      "provider": "string",
+      "provider_customer_branch_id": "string",
+      "provider_customer_id": "string",
+      "status": 0,
+      "type": 0
+    },
+    "date": "string",
+    "error": "string",
+    "id": "string",
+    "product_id": "string",
+    "quote": {
+      "agency_percent": 0,
+      "broker": {
+        "address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "cnpj": "string",
+        "contact": {
+          "email": "string",
+          "mobile_phone": "string",
+          "phone": "string"
+        },
+        "customer_id": "string",
+        "error": "string",
+        "id": "string",
+        "logo_url": "string",
+        "name": "string",
+        "susep": "string"
+      },
+      "broker_branch_id": "string",
+      "broker_channel": {
+        "broker_id": "string",
+        "description": "string",
+        "error": "string",
+        "id": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "name": "string",
+        "pro_labor_document": "string",
+        "stipulate": {
+          "date": "string",
+          "error": "string",
+          "id": "string",
+          "insurer_id": "string",
+          "last_update": "string",
+          "name": "string",
+          "pro_labor_document": "string",
+          "website_pages": [],
+          "website_url": "string"
+        },
+        "stipulate_id": "string",
+        "type": "string"
+      },
+      "broker_channel_id": "string",
+      "broker_id": "string",
+      "broker_product": {
+        "agency_percent": 0,
+        "broker_id": "string",
+        "commercial_image": "string",
+        "commercial_text": "string",
+        "commission_percent": 0,
+        "description": "string",
+        "error": "string",
+        "id": "string",
+        "is_restricted": true,
+        "name": "string",
+        "participation_rules": "string",
+        "pro_labor_percent": 0,
+        "product": {
+          "assists": [],
+          "branch": "string",
+          "coverages": [],
+          "currency": "string",
+          "description": "string",
+          "error": "string",
+          "id": "string",
+          "insurer": {},
+          "insurer_id": "string",
+          "is_dynamic": true,
+          "judicial_appeals": [],
+          "metadata": {},
+          "modalities": [],
+          "name": "string",
+          "optionals": [],
+          "questions": [],
+          "schema": {},
+          "susep": "string",
+          "type": 0
+        },
+        "product_id": "string"
+      },
+      "broker_product_id": "string",
+      "bundles": [
+        "string"
+      ],
+      "business_id": "string",
+      "commission_percent": 0,
+      "credential": {
+        "broker": {
+          "address": {},
+          "cnpj": "string",
+          "contact": {},
+          "customer_id": "string",
+          "error": "string",
+          "id": "string",
+          "logo_url": "string",
+          "name": "string",
+          "susep": "string"
+        },
+        "broker_id": "string",
+        "customer_branch_id": "string",
+        "customer_id": "string",
+        "error": "string",
+        "id": "string",
+        "items": [
+          {}
+        ],
+        "provider": "string",
+        "provider_customer_branch_id": "string",
+        "provider_customer_id": "string",
+        "status": 0,
+        "type": 0
+      },
+      "currency": "string",
+      "date": "string",
+      "draft_url": "string",
+      "error": "string",
+      "id": "string",
+      "insurer_branch_id": "string",
+      "insurer_id": "string",
+      "items": [
+        {
+          "adaptation_code": "string",
+          "address": {},
+          "assists": [],
+          "beneficiaries": [],
+          "beneficiaries_are_divided_by_law": true,
+          "bundle_id": "string",
+          "bundles": [],
+          "business_partners": [],
+          "business_partners_average_age": 0,
+          "business_partners_capital": 0,
+          "business_partners_quantity": 0,
+          "chassis": "string",
+          "claimant": {},
+          "construction_type": "string",
+          "coverage_amount": 0,
+          "coverages": [],
+          "dealer_exit_date_time": "string",
+          "drivers": [],
+          "employees": [],
+          "employees_average_age": 0,
+          "employees_capital": 0,
+          "employees_quantity": 0,
+          "expiration_day": 0,
+          "fipe_code": "string",
+          "fipe_percentage": 0,
+          "fuel_type": "string",
+          "has_lo_jack": true,
+          "has_tax_exemption": true,
+          "id": 0,
+          "imei": "string",
+          "installment_amount": 0,
+          "installment_quantity": 0,
+          "installments": [],
+          "insure_business_partners": true,
+          "is_0km": true,
+          "is_dealer_owner_vehicle": true,
+          "judicial_appeal": 0,
+          "judicial_appeal_percentage": 0,
+          "lat": 0,
+          "lawsuit": {},
+          "lng": 0,
+          "lo_jack_code": "string",
+          "manufacture_year": 0,
+          "manufacturer_name": "string",
+          "metadata": {},
+          "modality_type": 0,
+          "model": "string",
+          "model_name": "string",
+          "model_variant": "string",
+          "model_year": 0,
+          "motorcycle_usage": true,
+          "occupancy_type": "string",
+          "occupation_code": "string",
+          "optionals": [],
+          "phone_number": "string",
+          "plate": "string",
+          "property_type": "string",
+          "questions": [],
+          "relatives": [],
+          "residence_owner_is_policy_holder": true,
+          "robbery_protective_system": "string",
+          "seating_capacity": 0,
+          "tax_exemption_reasoning_code": "string",
+          "tax_exemption_start_date": "string",
+          "tax_exemption_type": "string",
+          "total_amount": 0,
+          "tumbled_home_owners": true,
+          "usage_code": 0,
+          "vehicle_type": "string"
+        }
+      ],
+      "lifetime_end": "string",
+      "lifetime_start": "string",
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "plan": {
+        "active": true,
+        "broker_id": "string",
+        "coverages": [
+          {}
+        ],
+        "error": "string",
+        "id": "string",
+        "installments": [
+          {}
+        ],
+        "insurer_id": "string",
+        "lifetime_days": 0,
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "name": "string",
+        "product_id": "string"
+      },
+      "plan_id": "string",
+      "policy_holder": {
+        "address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "bank_account": {
+          "account": "string",
+          "account_digit": "string",
+          "agency": "string",
+          "bank_code": "string"
+        },
+        "birth_date": "string",
+        "cnae": "string",
+        "cnpj": "string",
+        "contact": {
+          "email": "string",
+          "mobile_phone": "string",
+          "phone": "string"
+        },
+        "corporate_name": "string",
+        "cpf": "string",
+        "fantasy_name": "string",
+        "first_name": "string",
+        "gender": "string",
+        "income_monthly": 0,
+        "income_yearly": 0,
+        "is_foreign": true,
+        "is_politically_exposed": true,
+        "last_name": "string",
+        "marital_status": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "occupation_code": "string",
+        "occupation_name": "string",
+        "passport": "string",
+        "rg": "string"
+      },
+      "pro_labor_document": "string",
+      "pro_labor_percent": 0,
+      "product_id": "string",
+      "quote_request": {
+        "assists": [
+          {}
+        ],
+        "broker_channel_id": "string",
+        "broker_id": "string",
+        "broker_product_id": "string",
+        "bundles": [
+          {}
+        ],
+        "coverages": [
+          {}
+        ],
+        "currency": "string",
+        "date": "string",
+        "error": "string",
+        "id": "string",
+        "lead_id": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "modalities": [
+          0
+        ],
+        "optionals": [
+          {}
+        ],
+        "plans": [
+          {}
+        ],
+        "product_id": "string",
+        "questions": [
+          {}
+        ]
+      },
+      "quote_request_id": "string",
+      "renewal": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "status": 0,
+      "valid_until": "string",
+      "warnings": [
+        {
+          "code": 0,
+          "message": "string"
+        }
+      ]
+    },
+    "quote_id": "string"
+  },
+  "sale_request_id": "string",
+  "status": 0,
+  "warnings": [
+    {
+      "code": 0,
+      "message": "string"
+    }
+  ]
+}
+```
+
+<h3 id="postsale-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[SaleComplete](#schemasalecomplete)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+OAuth2
+</aside>
+
+## PostSaleRequest
+
+<a id="opIdPostSaleRequest"></a>
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.onli.com.br/v1/sales/request \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer xxx' \
+  -H 'Accept: application/json'
+
+```
+
+```javascript
+const inputBody = '{
+  "broker_id": "string",
+  "quote_id": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Authorization':'Bearer xxx',
+  'Accept':'application/json'
+};
+
+fetch('https://api.onli.com.br/v1/sales/request',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Authorization": []string{"Bearer xxx"},
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.onli.com.br/v1/sales/request", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /sales/request`
+
+> Body parameter
+
+```json
+{
+  "broker_id": "string",
+  "quote_id": "string"
+}
+```
+
+<h3 id="the-sale-request-returns-important-data-before-sales,-you-need-to-perform-this-request-before-the-sale-itself.-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[PostSaleReqRequest](#schemapostsalereqrequest)|false|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "broker_channel_id": "string",
+  "broker_id": "string",
+  "broker_product_id": "string",
+  "credential": {
+    "broker": {
+      "address": {
+        "city_name": "string",
+        "complement": "string",
+        "district_name": "string",
+        "number": "string",
+        "state_code": "string",
+        "street_name": "string",
+        "zip_code": "string"
+      },
+      "cnpj": "string",
+      "contact": {
+        "email": "string",
+        "mobile_phone": "string",
+        "phone": "string"
+      },
+      "customer_id": "string",
+      "error": "string",
+      "id": "string",
+      "logo_url": "string",
+      "name": "string",
+      "susep": "string"
+    },
+    "broker_id": "string",
+    "customer_branch_id": "string",
+    "customer_id": "string",
+    "error": "string",
+    "id": "string",
+    "items": [
+      {
+        "key": "string",
+        "value": "string"
+      }
+    ],
+    "provider": "string",
+    "provider_customer_branch_id": "string",
+    "provider_customer_id": "string",
+    "status": 0,
+    "type": 0
+  },
+  "date": "string",
+  "error": "string",
+  "id": "string",
+  "product_id": "string",
+  "quote": {
+    "agency_percent": 0,
+    "broker": {
+      "address": {
+        "city_name": "string",
+        "complement": "string",
+        "district_name": "string",
+        "number": "string",
+        "state_code": "string",
+        "street_name": "string",
+        "zip_code": "string"
+      },
+      "cnpj": "string",
+      "contact": {
+        "email": "string",
+        "mobile_phone": "string",
+        "phone": "string"
+      },
+      "customer_id": "string",
+      "error": "string",
+      "id": "string",
+      "logo_url": "string",
+      "name": "string",
+      "susep": "string"
+    },
+    "broker_branch_id": "string",
+    "broker_channel": {
+      "broker_id": "string",
+      "description": "string",
+      "error": "string",
+      "id": "string",
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "name": "string",
+      "pro_labor_document": "string",
+      "stipulate": {
+        "date": "string",
+        "error": "string",
+        "id": "string",
+        "insurer_id": "string",
+        "last_update": "string",
+        "name": "string",
+        "pro_labor_document": "string",
+        "website_pages": [
+          {}
+        ],
+        "website_url": "string"
+      },
+      "stipulate_id": "string",
+      "type": "string"
+    },
+    "broker_channel_id": "string",
+    "broker_id": "string",
+    "broker_product": {
+      "agency_percent": 0,
+      "broker_id": "string",
+      "commercial_image": "string",
+      "commercial_text": "string",
+      "commission_percent": 0,
+      "description": "string",
+      "error": "string",
+      "id": "string",
+      "is_restricted": true,
+      "name": "string",
+      "participation_rules": "string",
+      "pro_labor_percent": 0,
+      "product": {
+        "assists": [
+          {}
+        ],
+        "branch": "string",
+        "coverages": [
+          {}
+        ],
+        "currency": "string",
+        "description": "string",
+        "error": "string",
+        "id": "string",
+        "insurer": {
+          "address": {},
+          "cnpj": "string",
+          "contact": {},
+          "credential_provider_key": "string",
+          "customer_id": "string",
+          "error": "string",
+          "id": "string",
+          "name": "string"
+        },
+        "insurer_id": "string",
+        "is_dynamic": true,
+        "judicial_appeals": [
+          0
+        ],
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "modalities": [
+          0
+        ],
+        "name": "string",
+        "optionals": [
+          {}
+        ],
+        "questions": [
+          {}
+        ],
+        "schema": {
+          "default": {},
+          "maximum": {},
+          "minimum": {}
+        },
+        "susep": "string",
+        "type": 0
+      },
+      "product_id": "string"
+    },
+    "broker_product_id": "string",
+    "bundles": [
+      "string"
+    ],
+    "business_id": "string",
+    "commission_percent": 0,
+    "credential": {
+      "broker": {
+        "address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "cnpj": "string",
+        "contact": {
+          "email": "string",
+          "mobile_phone": "string",
+          "phone": "string"
+        },
+        "customer_id": "string",
+        "error": "string",
+        "id": "string",
+        "logo_url": "string",
+        "name": "string",
+        "susep": "string"
+      },
+      "broker_id": "string",
+      "customer_branch_id": "string",
+      "customer_id": "string",
+      "error": "string",
+      "id": "string",
+      "items": [
+        {
+          "key": "string",
+          "value": "string"
+        }
+      ],
+      "provider": "string",
+      "provider_customer_branch_id": "string",
+      "provider_customer_id": "string",
+      "status": 0,
+      "type": 0
+    },
+    "currency": "string",
+    "date": "string",
+    "draft_url": "string",
+    "error": "string",
+    "id": "string",
+    "insurer_branch_id": "string",
+    "insurer_id": "string",
+    "items": [
+      {
+        "adaptation_code": "string",
+        "address": {
+          "city_name": "string",
+          "complement": "string",
+          "district_name": "string",
+          "number": "string",
+          "state_code": "string",
+          "street_name": "string",
+          "zip_code": "string"
+        },
+        "assists": [
+          {}
+        ],
+        "beneficiaries": [
+          {}
+        ],
+        "beneficiaries_are_divided_by_law": true,
+        "bundle_id": "string",
+        "bundles": [
+          {}
+        ],
+        "business_partners": [
+          {}
+        ],
+        "business_partners_average_age": 0,
+        "business_partners_capital": 0,
+        "business_partners_quantity": 0,
+        "chassis": "string",
+        "claimant": {
+          "address": {},
+          "bank_account": {},
+          "birth_date": "string",
+          "cnae": "string",
+          "cnpj": "string",
+          "contact": {},
+          "corporate_name": "string",
+          "cpf": "string",
+          "fantasy_name": "string",
+          "first_name": "string",
+          "gender": "string",
+          "income_monthly": 0,
+          "income_yearly": 0,
+          "is_foreign": true,
+          "is_politically_exposed": true,
+          "last_name": "string",
+          "marital_status": "string",
+          "metadata": {},
+          "occupation_code": "string",
+          "occupation_name": "string",
+          "passport": "string",
+          "rg": "string"
+        },
+        "construction_type": "string",
+        "coverage_amount": 0,
+        "coverages": [
+          {}
+        ],
+        "dealer_exit_date_time": "string",
+        "drivers": [
+          {}
+        ],
+        "employees": [
+          {}
+        ],
+        "employees_average_age": 0,
+        "employees_capital": 0,
+        "employees_quantity": 0,
+        "expiration_day": 0,
+        "fipe_code": "string",
+        "fipe_percentage": 0,
+        "fuel_type": "string",
+        "has_lo_jack": true,
+        "has_tax_exemption": true,
+        "id": 0,
+        "imei": "string",
+        "installment_amount": 0,
+        "installment_quantity": 0,
+        "installments": [
+          {}
+        ],
+        "insure_business_partners": true,
+        "is_0km": true,
+        "is_dealer_owner_vehicle": true,
+        "judicial_appeal": 0,
+        "judicial_appeal_percentage": 0,
+        "lat": 0,
+        "lawsuit": {
+          "court_name": "string",
+          "process_content": "string",
+          "process_number": "string",
+          "tribunal_city_name": "string",
+          "tribunal_name": "string",
+          "tribunal_state_code": "string"
+        },
+        "lng": 0,
+        "lo_jack_code": "string",
+        "manufacture_year": 0,
+        "manufacturer_name": "string",
+        "metadata": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "modality_type": 0,
+        "model": "string",
+        "model_name": "string",
+        "model_variant": "string",
+        "model_year": 0,
+        "motorcycle_usage": true,
+        "occupancy_type": "string",
+        "occupation_code": "string",
+        "optionals": [
+          {}
+        ],
+        "phone_number": "string",
+        "plate": "string",
+        "property_type": "string",
+        "questions": [
+          {}
+        ],
+        "relatives": [
+          {}
+        ],
+        "residence_owner_is_policy_holder": true,
+        "robbery_protective_system": "string",
+        "seating_capacity": 0,
+        "tax_exemption_reasoning_code": "string",
+        "tax_exemption_start_date": "string",
+        "tax_exemption_type": "string",
+        "total_amount": 0,
+        "tumbled_home_owners": true,
+        "usage_code": 0,
+        "vehicle_type": "string"
+      }
+    ],
+    "lifetime_end": "string",
+    "lifetime_start": "string",
+    "metadata": {
+      "property1": "string",
+      "property2": "string"
+    },
+    "plan": {
+      "active": true,
+      "broker_id": "string",
+      "coverages": [
+        {
+          "coverage_option_id": "string",
+          "deductible_amount": 0,
+          "id": "string",
+          "insured_amount": 0,
+          "insured_amount_limit": 0,
+          "insured_days": 0,
+          "metadata": {},
+          "premium_amount": 0,
+          "value": "string"
+        }
+      ],
+      "error": "string",
+      "id": "string",
+      "installments": [
+        {
+          "amount": 0,
+          "bundle_id": "string",
+          "first_payment_amount": 0,
+          "id": "string",
+          "installment_quantity": 0,
+          "interest_amount": 0,
+          "interest_percent": 0,
+          "is_chosen": true,
+          "payment_methods": [],
+          "recurrence": {},
+          "taxes": [],
+          "total_amount": 0
+        }
+      ],
+      "insurer_id": "string",
+      "lifetime_days": 0,
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "name": "string",
+      "product_id": "string"
+    },
+    "plan_id": "string",
+    "policy_holder": {
+      "address": {
+        "city_name": "string",
+        "complement": "string",
+        "district_name": "string",
+        "number": "string",
+        "state_code": "string",
+        "street_name": "string",
+        "zip_code": "string"
+      },
+      "bank_account": {
+        "account": "string",
+        "account_digit": "string",
+        "agency": "string",
+        "bank_code": "string"
+      },
+      "birth_date": "string",
+      "cnae": "string",
+      "cnpj": "string",
+      "contact": {
+        "email": "string",
+        "mobile_phone": "string",
+        "phone": "string"
+      },
+      "corporate_name": "string",
+      "cpf": "string",
+      "fantasy_name": "string",
+      "first_name": "string",
+      "gender": "string",
+      "income_monthly": 0,
+      "income_yearly": 0,
+      "is_foreign": true,
+      "is_politically_exposed": true,
+      "last_name": "string",
+      "marital_status": "string",
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "occupation_code": "string",
+      "occupation_name": "string",
+      "passport": "string",
+      "rg": "string"
+    },
+    "pro_labor_document": "string",
+    "pro_labor_percent": 0,
+    "product_id": "string",
+    "quote_request": {
+      "assists": [
+        {
+          "description": "string",
+          "id": "string",
+          "metadata": {},
+          "name": "string",
+          "options": []
+        }
+      ],
+      "broker_channel_id": "string",
+      "broker_id": "string",
+      "broker_product_id": "string",
+      "bundles": [
+        {
+          "assists": [],
+          "broker_id": "string",
+          "coverages": [],
+          "description": "string",
+          "error": "string",
+          "id": "string",
+          "name": "string",
+          "optionals": [],
+          "product_id": "string"
+        }
+      ],
+      "coverages": [
+        {
+          "coverages": [],
+          "default": "string",
+          "description": "string",
+          "id": "string",
+          "metadata": {},
+          "multiple": true,
+          "name": "string",
+          "options": [],
+          "range": [],
+          "required": true
+        }
+      ],
+      "currency": "string",
+      "date": "string",
+      "error": "string",
+      "id": "string",
+      "lead_id": "string",
+      "metadata": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "modalities": [
+        0
+      ],
+      "optionals": [
+        {
+          "description": "string",
+          "id": "string",
+          "metadata": {},
+          "name": "string"
+        }
+      ],
+      "plans": [
+        {
+          "active": true,
+          "broker_id": "string",
+          "coverages": [],
+          "error": "string",
+          "id": "string",
+          "installments": [],
+          "insurer_id": "string",
+          "lifetime_days": 0,
+          "metadata": {},
+          "name": "string",
+          "product_id": "string"
+        }
+      ],
+      "product_id": "string",
+      "questions": [
+        {
+          "default": "string",
+          "description": "string",
+          "id": "string",
+          "metadata": {},
+          "multiple": true,
+          "name": "string",
+          "options": [],
+          "questions": [],
+          "range": [],
+          "relevance": "string",
+          "required": true
+        }
+      ]
+    },
+    "quote_request_id": "string",
+    "renewal": {
+      "property1": "string",
+      "property2": "string"
+    },
+    "status": 0,
+    "valid_until": "string",
+    "warnings": [
+      {
+        "code": 0,
+        "message": "string"
+      }
+    ]
+  },
+  "quote_id": "string"
+}
+```
+
+<h3 id="the-sale-request-returns-important-data-before-sales,-you-need-to-perform-this-request-before-the-sale-itself.-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[SaleRequestReqComplete](#schemasalerequestreqcomplete)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+OAuth2
+</aside>

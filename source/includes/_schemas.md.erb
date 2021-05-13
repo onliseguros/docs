@@ -806,7 +806,6 @@ ConsultantTimeline consultant timeline
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|broker_id|string|false|none|broker Id|
 |business_id|string|false|none|business Id|
 |date|string|false|none|date|
 |error|string|false|none|error|
@@ -6462,7 +6461,6 @@ PolicyWarning policy warning
 
 ```json
 {
-  "broker_id": "string",
   "card": {
     "brand": "string",
     "customer_id": "string",
@@ -6482,7 +6480,6 @@ PolicyWarning policy warning
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|broker_id|string|false|none|broker Id|
 
 <h2 id="tocS_PostChargeRequest">PostChargeRequest</h2>
 <!-- backwards compatibility -->
@@ -6493,7 +6490,6 @@ PolicyWarning policy warning
 
 ```json
 {
-  "broker_id": "string",
   "card": {
     "brand": "string",
     "customer_id": "string",
@@ -6515,7 +6511,8 @@ PostChargeRequest post charge request
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|broker_id|string|false|none|broker Id|
+|sale_id|string|true|none|sale Id|
+|card|[CardComplete](#schemacardcomplete)|false|none|card|
 
 <h2 id="tocS_PostLead">PostLead</h2>
 <!-- backwards compatibility -->
@@ -6527,7 +6524,6 @@ PostChargeRequest post charge request
 ```json
 {
   "broker_channel_id": "string",
-  "broker_id": "string",
   "broker_product_id": "string",
   "email": "string",
   "name": "string",
@@ -6543,11 +6539,10 @@ PostLead post lead
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |broker_channel_id|string|false|none|broker channel Id|
-|broker_id|string|false|none|broker Id|
-|broker_product_id|string|false|none|broker product Id|
-|email|string|false|none|email|
-|name|string|false|none|name|
-|phone|string|false|none|phone|
+|broker_product_id|true|false|none|broker product Id|
+|email|string|true|none|email|
+|name|string|true|none|name|
+|phone|string|true|none|phone|
 
 <h2 id="tocS_PostLeadRequest">PostLeadRequest</h2>
 <!-- backwards compatibility -->
@@ -6559,7 +6554,6 @@ PostLead post lead
 ```json
 {
   "broker_channel_id": "string",
-  "broker_id": "string",
   "broker_product_id": "string",
   "email": "string",
   "name": "string",
@@ -6575,7 +6569,6 @@ PostLeadRequest post lead request
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |broker_channel_id|string|false|none|broker channel Id|
-|broker_id|string|false|none|broker Id|
 |broker_product_id|string|false|none|broker product Id|
 |email|string|false|none|email|
 |name|string|false|none|name|
@@ -6590,7 +6583,6 @@ PostLeadRequest post lead request
 
 ```json
 {
-  "broker_id": "string",
   "bundles": [
     "string"
   ],
@@ -6930,7 +6922,6 @@ PostQuote post quote
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|broker_id|string|false|none|broker Id|
 |bundles|[string]|false|none|bundles|
 |business_id|string|false|none|business Id|
 |items|[[ProposalQuoteItem](#schemaproposalquoteitem)]|false|none|items|
@@ -6945,7 +6936,6 @@ PostQuote post quote
 ```json
 {
   "broker_channel_id": "string",
-  "broker_id": "string",
   "broker_product_id": "string",
   "lead_id": "string"
 }
@@ -6957,7 +6947,6 @@ PostQuote post quote
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |broker_channel_id|string|false|none|broker channel Id|
-|broker_id|string|false|none|broker Id|
 |broker_product_id|string|false|none|broker product Id|
 |lead_id|string|false|none|lead Id|
 
@@ -6970,7 +6959,6 @@ PostQuote post quote
 
 ```json
 {
-  "broker_id": "string",
   "bundles": [
     "string"
   ],
@@ -7310,7 +7298,6 @@ PostQuoteRequest post quote request
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|broker_id|string|false|none|broker Id|
 |bundles|[string]|false|none|bundles|
 |business_id|string|false|none|business Id|
 |items|[[ProposalQuoteItem](#schemaproposalquoteitem)]|false|none|items|
@@ -7344,7 +7331,6 @@ PostQuoteRequest post quote request
     }
   ],
   "broker_channel_id": "string",
-  "broker_id": "string",
   "broker_product_id": "string",
   "bundles": [
     {
@@ -7525,7 +7511,6 @@ PostQuoteRequestComplete post quote request complete
 ```json
 {
   "broker_channel_id": "string",
-  "broker_id": "string",
   "broker_product_id": "string",
   "lead_id": "string"
 }
@@ -7539,7 +7524,6 @@ PostQuoteRequestRequest post quote request request
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |broker_channel_id|string|false|none|broker channel Id|
-|broker_id|string|false|none|broker Id|
 |broker_product_id|string|false|none|broker product Id|
 |lead_id|string|false|none|lead Id|
 
@@ -7552,7 +7536,6 @@ PostQuoteRequestRequest post quote request request
 
 ```json
 {
-  "broker_id": "string",
   "complement": {
     "item": {
       "adaptation_code": "string",
@@ -7879,7 +7862,10 @@ PostSale post sale
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|broker_id|string|false|none|broker Id|
+|installment_id|string|true|none|installment Id|
+|payment_method|string|true|none|payment method|
+|sale_request_id|string|true|none|sale request Id|
+|complement|[EffectComplement](#schemaeffectcomplement)|false|none|complement|
 
 <h2 id="tocS_PostSaleReqRequest">PostSaleReqRequest</h2>
 <!-- backwards compatibility -->
@@ -7890,7 +7876,6 @@ PostSale post sale
 
 ```json
 {
-  "broker_id": "string",
   "quote_id": "string"
 }
 
@@ -7900,8 +7885,9 @@ PostSale post sale
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|broker_id|string|false|none|broker Id|
-|quote_id|string|false|none|quote Id|
+|installment_id|string|true|none|sale Id|
+|payment_method|string|true|none|sale Id|
+|sale_request_id|string|true|none|sale Id|
 
 <h2 id="tocS_PostSaleRequest">PostSaleRequest</h2>
 <!-- backwards compatibility -->
@@ -7912,7 +7898,6 @@ PostSale post sale
 
 ```json
 {
-  "broker_id": "string",
   "complement": {
     "item": {
       "adaptation_code": "string",
@@ -8239,7 +8224,6 @@ PostSaleRequest post sale request
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|broker_id|string|false|none|broker Id|
 
 <h2 id="tocS_PostSaleRequestComplete">PostSaleRequestComplete</h2>
 <!-- backwards compatibility -->
@@ -8251,7 +8235,6 @@ PostSaleRequest post sale request
 ```json
 {
   "broker_channel_id": "string",
-  "broker_id": "string",
   "broker_product_id": "string",
   "credential": {
     "broker": {
@@ -8822,7 +8805,6 @@ PostSaleRequestComplete post sale request complete
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |broker_channel_id|string|false|none|broker channel Id|
-|broker_id|string|false|none|broker Id|
 |broker_product_id|string|false|none|broker product Id|
 
 <h2 id="tocS_PostSaleRequestRequest">PostSaleRequestRequest</h2>
@@ -8834,7 +8816,6 @@ PostSaleRequestComplete post sale request complete
 
 ```json
 {
-  "broker_id": "string",
   "quote_id": "string"
 }
 
@@ -8846,7 +8827,6 @@ PostSaleRequestRequest post sale request request
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|broker_id|string|false|none|broker Id|
 |quote_id|string|false|none|quote Id|
 
 <h2 id="tocS_ProductAssistance">ProductAssistance</h2>
@@ -9850,7 +9830,6 @@ ProposalComplete proposal complete
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|broker_id|string|false|none|broker Id|
 |date|string|false|none|date|
 |error|string|false|none|error|
 |id|string|false|none|Id|
@@ -13726,7 +13705,6 @@ SaleRequestReqComplete sale request req complete
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |broker_channel_id|string|false|none|broker channel Id|
-|broker_id|string|false|none|broker Id|
 |broker_product_id|string|false|none|broker product Id|
 
 <h2 id="tocS_SaleWarning">SaleWarning</h2>
@@ -14126,7 +14104,6 @@ StipulateWebsitePage stipulate website page
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |broker_channel_id|string|false|none|broker channel Id|
-|broker_id|string|false|none|broker Id|
 |broker_products|[[BrokerProductComplete](#schemabrokerproductcomplete)]|false|none|broker products|
 
 <h2 id="tocS_Tax">Tax</h2>
@@ -14301,7 +14278,6 @@ TimelineComplete timeline complete
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|broker_id|string|false|none|broker Id|
 |business_id|string|false|none|business Id|
 |date|string|false|none|date|
 |error|string|false|none|error|
@@ -14946,7 +14922,6 @@ TimelineEvent timeline event
 |---|---|---|---|---|
 |active|boolean|false|none|active|
 |agency_percent|number(double)|false|none|agency percent|
-|broker_id|string|false|none|broker Id|
 |commission_percent|number(double)|false|none|commission percent|
 |date|string|false|none|date|
 |error|string|false|none|error|

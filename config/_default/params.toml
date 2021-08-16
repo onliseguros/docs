@@ -1,0 +1,68 @@
+# Meta Data for SEO
+
+## Homepage
+title = "Onli Developers"
+titleSeparator = "|"
+titleAddition = "API documentation and Developer Resources"
+description = "Through our solutions, online insurance distribution has become much easier. Check out our documentation and our developers resources here."
+
+## Open Graph
+images = ["onli.png"]
+ogLocale = "en_US"
+domainTLD = "developers.onli.com.br"
+titleHome = "Onli Seguros - API documentation and Developer Resources"
+
+## Twitter Cards
+twitterSite = "@onliseguros"
+twitterCreator = "@onliseguros"
+
+## JSON-LD
+schemaType = "Organization"
+schemaName = "Onli Seguros"
+schemaAuthor = "Onli"
+schemaLocale = "en-US"
+schemaLogo = "logo-onli.png"
+schemaLogoWidth = 512
+schemaLogoHeight = 512
+schemaImage = "onli.png"
+schemaImageWidth = 1280
+schemaImageHeight = 640
+schemaTwitter = "https://twitter.com/onliseguros"
+schemaLinkedIn = ""
+schemaGitHub = "https://github.com/onliseguros"
+schemaSection = "blog"
+
+## Sitelinks Search Box
+siteLinksSearchBox = false
+
+## Chrome Browser
+themeColor = "#fff"
+
+# Images
+quality = 85
+bgColor = "#fff"
+landscapePhotoWidths = [900, 800, 700, 600, 500]
+portraitPhotoWidths = [800, 700, 600, 500]
+lqipWidth = "20x"
+
+# Footer
+copyRight = "© 2021 Onli - All rights reserved"
+
+# Alert
+alert = false
+
+# Edit Page
+docsRepo = "https://github.com/onliseguros/docs"
+editPage = false
+
+[options]
+  lazySizes = true
+  clipBoard = true
+  instantPage = true
+  flexSearch = true
+  darkMode = true
+  bootStrapJs = true
+  breadCrumb = false
+  highLight = true
+  kaTex = false
+  collapsibleSidebar = false

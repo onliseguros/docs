@@ -23,8 +23,7 @@ jobs:
       - run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: chabad360/hugo-gh-pages@master
         with:
-          github_token: ${{ secrets.GH_PAT }}
-          publish_dir: ./public
+          githubToken: ${{ secrets.GH_PAT }}
           cname: developers.onli.com.br

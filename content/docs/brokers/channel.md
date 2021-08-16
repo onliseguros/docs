@@ -1,5 +1,5 @@
 ---
-title: "Product"
+title: "Channel"
 description: ""
 lead: ""
 date: 2020-10-13T15:21:01+02:00
@@ -9,13 +9,13 @@ images: []
 menu:
   docs:
     parent: "brokers"
-weight: 430
+weight: 420
 toc: true
 ---
 
-### List Broker Products
+### List Broker Channels
 
-`GET /v1/broker-products`
+`GET /v1/broker-channels`
 
 ##### URL Parameters
 
@@ -28,7 +28,7 @@ The above request returns JSON structured like this:
 Parameter | Description
 --------- | -----------
 total | The total of items
-items.id | The ID of the broker product
+items.id | The ID of the broker channel
 
 ```json
 {

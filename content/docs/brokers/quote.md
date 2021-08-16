@@ -24,7 +24,7 @@ The request has the following parameters in body:
 Parameter | Description |
 --------- | ----------- | -----------
 broker_product_id | The ID of the broker product | Required
-broker_channel_id | The ID of the broker product | Optional
+broker_channel_id | The ID of the broker channel | Optional
 lead_id | The ID of the lead | Optional
 
 ```json

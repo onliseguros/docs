@@ -30,3 +30,7 @@ The quotes has a certain validity depending of product and insurer. You must val
 ### Quote not available to perform a sale
 
 Quotes can only be used to create sales once. Also, only sales with valid statuses and valid installments are eligible to create sales from.
+
+### Invoice not available to pay
+
+This message appears when the invoice status or conditions are not well suited to pay. Invoices that already have payments with success statuses can't be paid repeatedly.

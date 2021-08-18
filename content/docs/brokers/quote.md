@@ -65,7 +65,7 @@ lifetime_end | The lifetime end date | Required
 policy_holder | The policy holder data | Optional
 items | The list of items for quote | Optional
 
-> The `policy_holder` and `items` parameters from Create Quote can vary depending on which type of insurance product your are quoting. See our examples to understand the possible values for each product.
+> The `policy_holder` and `items` parameters from Create Quote can vary depending on which type of insurance product your are quoting. See our guides to understand the possible values for each product.
 
 ```json
 {

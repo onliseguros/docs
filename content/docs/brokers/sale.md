@@ -60,7 +60,7 @@ installment_id | The ID of the installment chosen | Required
 payment_method | The payment method chosen | Required
 complement | The complement for data | Optional
 
-> The `complement` parameter from Create Sale can vary depending on which type of insurance product your are selling. See our examples to understand the possible values for each product.
+> The `complement` parameter from Create Sale can vary depending on which type of insurance product your are selling. See our guides to understand the possible values for each product.
 
 ```json
 {

@@ -1,5 +1,9 @@
 ### Onli Seguros - API Documentation & Developers
 
+[![GitHubAction Status](https://github.com/onliseguros/docs/workflows/build/badge.svg?branch=master)](https://github.com/onliseguros/docs/actions)
+
+---
+
 Welcome to this documentation.
 
 Our APIs itself was developed to cover the aspects of the digital distribution of insurance products. From now on, 

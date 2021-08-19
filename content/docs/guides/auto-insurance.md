@@ -1,6 +1,6 @@
 ---
-title: "Quote & Sell - Auto Insurance"
-description: ""
+title: "Auto Insurance"
+description: "See how to quote a auto insurance."
 lead: ""
 date: 2020-10-06T08:49:31+00:00
 lastmod: 2020-10-06T08:49:31+00:00
@@ -15,7 +15,7 @@ toc: true
 
 ### The Item data for Auto Insurance
 
-See below the data available for the `items` at quotes and sales:
+See below the data available for the `items` at quotes:
 
 Parameter |
 --------- | -----------

@@ -26,8 +26,8 @@ h6,
 
 h6, .h6 {
   margin-bottom: -20px !important;
-  font-size: 0.9em;
-  font-style: italic;
+  font-size: 0.9em !important;
+  font-style: italic !important;
 }
 
 @include media-breakpoint-up(md) {

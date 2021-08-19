@@ -66,10 +66,10 @@ reversal_bank_account | The reversal bank account | Optional
 
 Reason | Name
 --------- | -----------
-1 | PolicyholderRequested
+1 | Policyholder requested
 2 | Default
 3 | Claimed
-4 | InsurerRequest
+4 | Insurer request
 
 ###### The reversal method can be:
 

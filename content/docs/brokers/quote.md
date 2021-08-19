@@ -15,6 +15,9 @@ toc: true
 
 ### Create Quote Request
 
+Before trying to create a `quote`, you must create a `quote_request` to "prepare" the process of quotation, receiving
+useful data for the rest of the process and to help proponent select desired configurations.
+
 `POST /v1/quotes/request`
 
 ##### Body Parameters
@@ -42,10 +45,16 @@ The above request returns JSON structured like this:
 Parameter | Description
 --------- | -----------
 id | The ID of the Quote Request
+assists | List of assists available to quote
+coverages | List of coverages available to quote
+plans | List of plans available to quote
 
 ```json
 {
-  "id": "string"
+  "id": "string",
+  "assists": [],
+  "coverages": [],
+  "plans": []
 }
 ```
 

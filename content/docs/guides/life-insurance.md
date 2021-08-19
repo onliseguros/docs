@@ -1,6 +1,6 @@
 ---
-title: "Quote & Sell - Life Insurance"
-description: ""
+title: "Life Insurance"
+description: "See how to quote a life insurance."
 lead: ""
 date: 2020-10-06T08:49:31+00:00
 lastmod: 2020-10-06T08:49:31+00:00
@@ -15,7 +15,7 @@ toc: true
 
 ### The Policyholder data for Life Insurance
 
-See below the data available for the `policy_holder` at quotes and sales:
+See below the data available for the `policy_holder` at quotes:
 
 Parameter | 
 --------- | -----------

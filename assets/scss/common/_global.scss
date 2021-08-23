@@ -24,6 +24,12 @@ h6,
   margin: 2rem 0 1rem;
 }
 
+h6, .h6 {
+  margin-bottom: -20px;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
 @include media-breakpoint-up(md) {
   body {
     font-size: $font-size-md;
@@ -44,12 +50,6 @@ h6,
   .h6 {
     margin-bottom: 1.125rem;
   }
-}
-
-.h6 {
-  margin-bottom: -20px !important;
-  font-size: 0.9em !important;
-  font-style: italic !important;
 }
 
 .home h1 {

@@ -32,6 +32,7 @@ Parameter | Description
 broker_channel_id | The ID of the broker channel
 logo_url | The public logo url for the broker channel
 broker_products | The list of broker products available
+broker_products.name | The broker product exclusive name
 broker_products.product | The insurer product information itself
 broker_products.product.type | The insurer product type
 broker_products.product.insurer | The insurer information itself
@@ -60,13 +61,9 @@ Type | Name
   "broker_products": [
     {
       "id": "string",
-      "product_id": "string",
       "name": "string",
-      "commercial_image": "string",
-      "commercial_text": "string",
-      "commission_percent": 0,
       "description": "string",
-      "participation_rules": "string",
+      "product_id": "string",
       "product": {
         "id": "string",
         "name": "string",

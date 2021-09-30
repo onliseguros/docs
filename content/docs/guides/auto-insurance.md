@@ -24,13 +24,11 @@ chassis | -
 model_year | -
 model_name | -
 model_variant | -
-manufacturer_year | -
-manufacturer_name | -
+manufacture_year | -
+brand_name | -
 fipe_code | Brazilian's "FIPE" identification code
 fuel_type | -
-seating_capacity | -
 is_0km | Flag that determines if the vehicle is new or used
-dealer_exit_date_time | Date and time of dealer exist or purchase as RFC3339
 drivers | List of drivers for the vehicle
 drivers.first_name | -
 drivers.last_name | -
@@ -54,13 +52,11 @@ gasoline, ethanol, flex, diesel, battery, hybrid
   "model_year": 0,
   "model_name": "string",
   "model_variant": "string",
-  "manufacturer_year": 0,
-  "manufacturer_name": "string",
+  "manufacture_year": 0,
+  "brand_name": "string",
   "fipe_code": "string",
   "fuel_type": "string",
-  "seating_capacity": 0,
   "is_0km": true,
-  "dealer_exit_date_time": "string",
   "drivers": [
     {
       "first_name": "string",

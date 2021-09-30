@@ -34,6 +34,10 @@ The platform's customer. The principal representing and owner of multiple Broker
 Contains pieces of information important to accredit a first party with a second party. For example, an association with the Broker and Insurer,
 or the payment credentials with gateways for the Insurer. It holds information to be used in the integrations and authorizations of the use of services between our entities.
 
+### Cash Flow
+
+Financial movements and records of transactions made in the platform. Contain information about provisioned and future payments, flow of money in and out.
+
 ### Insurer
 
 The insurance company that undertakes to indemnify for losses and perform other insurance-related operations.

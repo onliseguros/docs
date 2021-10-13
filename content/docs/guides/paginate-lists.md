@@ -44,7 +44,7 @@ Given or previous response of `20 in total` - this query will return the second 
 
 Some page lists allows you to paginate using a cursor. This gives you more consistence between the
 responses for each page. It guarantees that when asking for other pages, the API will return only 
-the exact "next" or "previous" resources, avoiding returning recently created or updating, repeating resources.
+the exact "next" or "previous" resources, avoiding returning recently created or updated, repeating resources.
 
 For example, image the following response for the first page:
 

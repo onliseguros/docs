@@ -53,7 +53,9 @@ items.deductions.amount | The deduction amount
 items.deductions.description | The deduction description
 items.deductions.factor | The deduction factor percentage if applicable
 items.date | The date when the record was created
-items.date_cash_in_out | The forecast date for cash in/out
+items.deleted_at | The deletion date for this record
+items.date_cash_in_out | The date for cash in/out
+items.date_cash_in_out_forecast | The forecast date for cash in/out
 
 ###### The cash flow category can be:
 
@@ -101,7 +103,9 @@ daily, monthly, yearly
         }
       ],
       "date": "string",
-      "date_cash_in_out": "string"
+      "deleted_at": "string",
+      "date_cash_in_out": "string",
+      "date_cash_in_out_forecast": "string"
     }
   ]
 }

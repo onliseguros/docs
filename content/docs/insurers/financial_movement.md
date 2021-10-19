@@ -41,6 +41,7 @@ Some financial movements can also be related with following entities:
 Parameter | Description
 --------- | -----------
 items.policy | The policy associated with this movement
+items.effect | The effect associated with this movement
 items.cash_flow | The cash flow record associated with this movement
 
 ```json
@@ -53,6 +54,7 @@ items.cash_flow | The cash flow record associated with this movement
       "balance": 0,
       "is_processing": false,
       "policy": {},
+      "effect": {},
       "cash_flow": {},
       "process_date": "string",
       "date": "string"

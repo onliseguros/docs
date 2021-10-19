@@ -36,7 +36,11 @@ or the payment credentials with gateways for the Insurer. It holds information t
 
 ### Cash Flow
 
-Financial movements and records of transactions made in the platform. Contain information about provisioned and future payments, flow of money in and out.
+Records of transactions made in the platform. Contain information about provisioned and future payments, flow of money in and out.
+
+### Financial Movements
+
+Financial movements of transactions made in the platform. Contain information about bank statements and the actual register of money in and out. Holds the balances for the insurance company itself within the platform.
 
 ### Insurer
 

@@ -13,6 +13,10 @@ weight: 300
 toc: true
 ---
 
+### Affinity 
+
+The sale of insurance through groups such as business or professional associations.
+
 ### Broker
 
 An insurance intermediary who/that represents the insured rather than the insurer. Since they are not the legal representatives of insurers, brokers, unlike independent agents,

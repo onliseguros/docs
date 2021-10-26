@@ -5,7 +5,7 @@ document.getElementById('mode').addEventListener('click', () => {
 
 });
 
-if (localStorage.getItem('theme') === 'dark') {
+if (localStorage.getItem('theme') === 'dark' || localStorage.getItem('theme') != 'light') {
 
   document.body.classList.add('dark');
 

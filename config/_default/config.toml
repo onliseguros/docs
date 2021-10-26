@@ -54,7 +54,7 @@ rel  = "sitemap"
         title = true
     [markup.goldmark.renderer]
       unsafe = true
-  [markup.highlight]
+  [markup.highFinancialMovement]
     codeFences = false
     guessSyntax = false
     hl_Lines = ""

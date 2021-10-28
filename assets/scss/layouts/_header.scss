@@ -69,6 +69,13 @@
 .navbar {
   background-color: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid $gray-200;
+  -webkit-box-shadow: -2px 12px 6px -12px $gray-200;
+  box-shadow: -2px 12px 6px -12px $gray-200;
+}
+
+.dark .navbar {
+  -webkit-box-shadow: -2px 12px 6px -12px $body-overlay-dark;
+  box-shadow: -2px 12px 6px -12px $body-overlay-dark;
 }
 
 .home .navbar {

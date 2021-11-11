@@ -145,6 +145,7 @@ Status | Name
 2 | Canceled
 3 | Expired
 4 | Renewed
+5 | Pending
 
 ###### The affinity attachment types can be:
 

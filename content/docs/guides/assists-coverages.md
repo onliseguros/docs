@@ -63,7 +63,7 @@ id | The ID of the Coverage
 name | Coverage name
 description | Coverage description
 default | Default value for this coverage determined by insurer
-rage | List of available range values for coverage amount
+range | List of available range values for coverage amount
 multiple | If the coverage allows the use multiple times
 required | If the coverage is required for quote
 coverages | Nested coverages that can be used if the parent one is in use

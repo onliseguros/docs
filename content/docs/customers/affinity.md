@@ -13,11 +13,11 @@ weight: 510
 toc: true
 ---
 
-### Get Affinity Partner
+### Get Affinity Partnership
 
-Retrieve information about the current Affinity Partner. It will return available products and current status with insurers.
+Retrieve information about the current Affinity Partnership. It will return available products and current status with insurers.
 
-`GET /v1/affinity/partner`
+`GET /v1/affinity/partnership`
 
 ##### Response
 
@@ -26,7 +26,7 @@ The above request returns JSON structured like this:
 Parameter | Description
 --------- | -----------
 customer | The complete customer data
-products | List of products available for this affinity partner
+products | List of products available for this affinity partnership
 products.id | The ID of the current product
 products.name | The name of the current product
 products.assists | List of assists available for the product
@@ -59,7 +59,7 @@ The request has the following parameters in body:
 
 Parameter | Description |
 --------- | ----------- | -----------
-product_id | The ID of the product selected for your partner | Required
+product_id | The ID of the product selected for your partnership | Required
 
 ```json
 {

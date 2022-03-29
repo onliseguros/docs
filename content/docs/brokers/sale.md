@@ -96,3 +96,77 @@ Status | Name
   "status": 0
 }
 ```
+
+### Detail Sale
+
+`GET /v1/sales/{sale_id}`
+
+##### URL Parameters
+
+Parameter | Description
+--------- | -----------
+sale_id | The ID of sale to detail
+
+##### Response
+
+The above request returns JSON structured like this:
+
+Parameter | Description
+--------- | -----------
+id | The ID of the Sale
+status | The status of sale
+
+###### The sale status can be:
+
+Status | Name
+--------- | -----------
+1 | Started
+2 | Pending
+3 | Failed
+4 | Finished
+5 | Canceled
+
+```json
+{
+  "id": "string",
+  "status": 0
+}
+```
+
+### Timeline
+
+`GET /v1/consultant/timeline/{sale_id}`
+
+##### URL Parameters
+
+Parameter | Description
+--------- | -----------
+sale_id | The ID of sale to retrieve the timeline
+
+##### Response
+
+The above request returns JSON structured like this:
+
+Parameter | Description
+--------- | -----------
+id | The ID of the Timeline
+last_update | The date Timeline was updated
+events | The list of events associated with the Sale
+events.date | Event date
+events.policy | Policy event for this sale, has a complete policy object
+events.policy.document_url | Policy document URL
+
+```json
+{
+  "id": "string",
+  "last_update": "string",
+  "events": [
+    {
+      "date": "string",
+      "policy": {
+        "document_url": "string"
+      }
+    }
+  ]
+}
+```

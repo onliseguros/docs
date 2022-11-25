@@ -10,7 +10,7 @@ description = "Through our solutions, online insurance distribution has become m
 images = ["onli.png"]
 ogLocale = "en_US"
 domainTLD = "developers.onli.com.br"
-titleHome = "Onli Seguros - API documentation and Developer Resources"
+titleHome = "Onli Tecnologia - API documentation and Developer Resources"
 
 ## Twitter Cards
 twitterSite = "@onliseguros"
@@ -18,7 +18,7 @@ twitterCreator = "@onliseguros"
 
 ## JSON-LD
 schemaType = "Organization"
-schemaName = "Onli Seguros"
+schemaName = "Onli Tecnologia"
 schemaAuthor = "Onli"
 schemaLocale = "en-US"
 schemaLogo = "logo-onli.png"
